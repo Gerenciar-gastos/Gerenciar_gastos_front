@@ -7,8 +7,8 @@ import GlobalStyle from './styled/global.js'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <ResetStyle/>
-    <GlobalStyle/>
+    <ResetStyle />
+    <GlobalStyle />
     <App />
   </StrictMode>,
 )
