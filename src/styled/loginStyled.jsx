@@ -113,13 +113,54 @@ export const InputPassword = styled.input`
   box-sizing: border-box; 
 `;
 
-export const SavePassword = styled.div`
+export const SavePasswordRegister = styled.div`
   background-color: #e7eb05;
-  width: 70vw;   
+  width: 85vw;  
   height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
+export const SavePassword = styled.div`
+  background-color: #05eb20;
+  width: 40vw;  
+  height: 8vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  p{
+    font-size: 30px;
+    color: black;
+    text-align: center;
+  }
+`;
+
+export const ConteinerSavePassword = styled.div`
+  background-color: #05e7eb;
+  width: 50px;  
+  height: 50px;
+  border-radius: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    font-size: 40px; 
+    color: #000; 
+  }
+`;
+
+
 export const Register = styled.div`
+  background-color: #eb052b;
+  width: 40vw;  
+  height: 8vh;
+`;
+
+export const Ok = styled.div`
   background-color: #63f40f;
   width: 70vw;   
   height: 10vh;

@@ -1,10 +1,16 @@
-import { All, Conteiner, EmailCpf, IconeEmailCpf, IconePassword, InputEmailCpf, InputPassword, LogoLogin, PassWord, Register, SavePassword } from "../styled/loginStyled";
+import React, { useState } from 'react';
+import { All, Conteiner, ConteinerSavePassword, EmailCpf, IconeEmailCpf, IconePassword, InputEmailCpf, InputPassword, LogoLogin, Ok, PassWord, Register, SavePassword, SavePasswordRegister } from "../styled/loginStyled";
 import { FaUser } from "react-icons/fa6";
 import { GiPadlock } from "react-icons/gi";
+import { AiOutlineCheck } from "react-icons/ai";
 
 
 export default function Login() {
+    const [isChecked, setIsChecked] = useState(false);
 
+    const handleCheckboxClick = () => {
+        setIsChecked(!isChecked);
+    };
 
     return (
         <All>
@@ -24,12 +30,17 @@ export default function Login() {
                     </IconePassword>
                     <InputPassword type="text" placeholder="Digite a senha" />
                 </PassWord>
-                <SavePassword></SavePassword>
-                <Register>Login</Register>
+                <SavePasswordRegister>
+                    <SavePassword>
+                        <ConteinerSavePassword onClick={handleCheckboxClick}>
+                            {isChecked && <AiOutlineCheck />}
+                        </ConteinerSavePassword>
+                        <p>Salvar senha</p>
+                    </SavePassword>
+                    <Register></Register>
+                </SavePasswordRegister>
+                <Ok>Login</Ok>
             </Conteiner>
-
-        </All >
-
+        </All>
     );
 }
-
