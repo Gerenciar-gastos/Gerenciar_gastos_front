@@ -71,15 +71,46 @@ export const InputEmailCpf = styled.input`
   padding: 10px; 
   border: 1px solid #ccc; 
   border-radius: 4px; 
-  font-size: 20px; 
+  font-size: 25px; 
   outline: none; 
   box-sizing: border-box; 
 `;
 
 export const PassWord = styled.div`
   background-color: #e86d09;
-  width: 60vw;  
+  width: 85vw;  
   height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin-top: -50px;
+`;
+
+export const IconePassword = styled.div`
+  background-color: #0716ec;
+  width: 8vw;  
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  svg {
+    color: #e30de3; 
+    font-size: 4rem; 
+  }
+`;
+
+export const InputPassword = styled.input`
+  background-color: #eeeae9;
+  width: 70vw;  
+  height: 8vh; 
+  padding: 10px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  font-size: 25px; 
+  outline: none; 
+  box-sizing: border-box; 
 `;
 
 export const SavePassword = styled.div`
