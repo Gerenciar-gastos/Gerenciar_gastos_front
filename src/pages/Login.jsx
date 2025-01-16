@@ -3,6 +3,7 @@ import { All, Conteiner, ConteinerSavePassword, EmailCpf, IconeEmailCpf, IconePa
 import { FaUser } from "react-icons/fa6";
 import { GiPadlock } from "react-icons/gi";
 import { AiOutlineCheck } from "react-icons/ai";
+import { Link } from 'react-router-dom';
 
 
 export default function Login() {
@@ -37,7 +38,11 @@ export default function Login() {
                         </ConteinerSavePassword>
                         <p>Salvar senha</p>
                     </SavePassword>
-                    <Register></Register>
+                    <Register>
+                        <Link to="/register" style={{ textDecoration: 'none', color: 'black' , fontSize: '30px', marginRight: '10px'}}>
+                            Cadastre-se
+                        </Link>
+                    </Register>
                 </SavePasswordRegister>
                 <Ok>Login</Ok>
             </Conteiner>

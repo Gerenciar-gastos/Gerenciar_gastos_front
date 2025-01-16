@@ -153,11 +153,14 @@ export const ConteinerSavePassword = styled.div`
   }
 `;
 
-
 export const Register = styled.div`
   background-color: #eb052b;
   width: 40vw;  
   height: 8vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  
 `;
 
 export const Ok = styled.div`

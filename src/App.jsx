@@ -10,7 +10,7 @@ function App() {
       <AuthProvider>
         <Routes >
           
-          <Route path='/a' element={<Login />} />
+          <Route path='/login' element={<Login />} />
          
         </Routes>
       </AuthProvider>
