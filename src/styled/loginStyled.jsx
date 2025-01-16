@@ -14,7 +14,7 @@ export const All = styled.div`
 export const Conteiner = styled.div`
   background-color: #0c0b0c;
   color: aliceblue;
-  width: 80vw;  
+  width: 90vw;  
   height: 80vh; 
   display: flex;
   justify-content: space-around;
@@ -41,9 +41,39 @@ export const LogoLogin = styled.div`
 
 export const EmailCpf = styled.div`
   background-color: #ec2207;
-  width: 60vw;  
+  width: 85vw;  
   height: 10vh;
   margin-top: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+`;
+
+export const IconeEmailCpf = styled.div`
+  background-color: #0716ec;
+  width: 8vw;  
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  svg {
+    color: #e30de3; 
+    font-size: 4rem; 
+  }
+`;
+
+export const InputEmailCpf = styled.input`
+  background-color: #eeeae9;
+  width: 70vw;  
+  height: 8vh; 
+  padding: 10px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  font-size: 20px; 
+  outline: none; 
+  box-sizing: border-box; 
 `;
 
 export const PassWord = styled.div`
