@@ -24,12 +24,19 @@ export const Conteiner = styled.div`
 `;
 
 export const LogoLogin = styled.div`
-  background-color: #e30de3;
+  background-color: #0ce1e8;
   width: 250px;  
   height: 250px;
   border-radius: 50%;
   position: fixed;
   top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   svg {
+    color: #e30de3; 
+    font-size: 10rem; 
+  }
 `;
 
 export const EmailCpf = styled.div`
