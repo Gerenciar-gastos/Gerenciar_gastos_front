@@ -12,7 +12,7 @@ export const All = styled.div`
 `;
 
 export const Conteiner = styled.div`
-  background-color: #0c0b0c;
+  background-color: rgba(255, 255, 255, 0.5);
   color: aliceblue;
   width: 90vw;  
   height: 80vh; 
@@ -24,7 +24,7 @@ export const Conteiner = styled.div`
 `;
 
 export const LogoLogin = styled.div`
-  background-color: #0ce1e8;
+  background-color: rgba(255, 255, 255, 1);
   width: 200px;  
   height: 200px;
   border-radius: 50%;
@@ -40,7 +40,7 @@ export const LogoLogin = styled.div`
 `;
 
 export const EmailCpf = styled.div`
-  background-color: #ec2207;
+  background-color: rgba(255, 255, 255, 0.5);
   width: 85vw;  
   height: 10vh;
   margin-top: 130px;
@@ -51,7 +51,6 @@ export const EmailCpf = styled.div`
 `;
 
 export const IconeEmailCpf = styled.div`
-  background-color: #0716ec;
   width: 8vw;  
   height: 8vh;
   display: flex;
@@ -65,7 +64,7 @@ export const IconeEmailCpf = styled.div`
 `;
 
 export const InputEmailCpf = styled.input`
-  background-color: #eeeae9;
+  background-color: rgba(255, 255, 255, 0.0);
   width: 70vw;  
   height: 8vh; 
   padding: 10px; 
@@ -77,7 +76,7 @@ export const InputEmailCpf = styled.input`
 `;
 
 export const PassWord = styled.div`
-  background-color: #e86d09;
+  background-color: rgba(255, 255, 255, 0.5);
   width: 85vw;  
   height: 10vh;
   display: flex;
@@ -88,7 +87,6 @@ export const PassWord = styled.div`
 `;
 
 export const IconePassword = styled.div`
-  background-color: #0716ec;
   width: 8vw;  
   height: 8vh;
   display: flex;
@@ -102,7 +100,7 @@ export const IconePassword = styled.div`
 `;
 
 export const InputPassword = styled.input`
-  background-color: #eeeae9;
+  background-color: rgba(255, 255, 255, 0.0);
   width: 70vw;  
   height: 8vh; 
   padding: 10px; 
@@ -114,7 +112,6 @@ export const InputPassword = styled.input`
 `;
 
 export const SavePasswordRegister = styled.div`
-  background-color: #e7eb05;
   width: 85vw;  
   height: 10vh;
   display: flex;
@@ -123,7 +120,6 @@ export const SavePasswordRegister = styled.div`
 `;
 
 export const SavePassword = styled.div`
-  background-color: #05eb20;
   width: 40vw;  
   height: 8vh;
   display: flex;
@@ -137,7 +133,7 @@ export const SavePassword = styled.div`
 `;
 
 export const ConteinerSavePassword = styled.div`
-  background-color: #05e7eb;
+  background-color: rgba(255, 255, 255, 0.5);
   width: 50px;  
   height: 50px;
   border-radius: 10px;
@@ -146,7 +142,7 @@ export const ConteinerSavePassword = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
+  font-size: 80px;
   svg {
     font-size: 40px; 
     color: #000; 
@@ -154,17 +150,15 @@ export const ConteinerSavePassword = styled.div`
 `;
 
 export const Register = styled.div`
-  background-color: #eb052b;
   width: 40vw;  
   height: 8vh;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  
 `;
 
 export const Ok = styled.div`
-  background-color: #63f40f;
+  background-color: rgba(255, 255, 255, 0.5);
   width: 70vw;   
   height: 10vh;
   font-size: 50px;

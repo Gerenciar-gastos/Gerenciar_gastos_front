@@ -34,6 +34,7 @@ export default function Login() {
             localStorage.removeItem('savedPassword');
         }
     };
+    const isButtonDisabled = !(cpcEmail && password);
 
     function Login() {
         console.log(cpcEmail)
@@ -87,13 +88,24 @@ export default function Login() {
                         <p>Salvar senha</p>
                     </SavePassword>
                     <Register>
-                        <Link to="/register" style={{ textDecoration: 'none', color: 'black', fontSize: '30px', marginRight: '10px' }}>
+                        <Link to="/register" style={{ color: 'black', fontSize: '30px', marginRight: '10px' }}>
                             Cadastre-se
                         </Link>
                     </Register>
                 </SavePasswordRegister>
-                <Ok onClick={Login}>Login</Ok>
-            </Conteiner>
-        </All>
+                <Ok
+                    type="button"
+                    onClick={Login}
+                    style={{
+                        backgroundColor: isButtonDisabled ? '#ccc': '#E837AB' , // Cor depende de estar ou não habilitado
+                        cursor: isButtonDisabled ? 'not-allowed' : 'pointer'   // Altera o cursor
+                    }}
+                    disabled={isButtonDisabled} 
+                >
+                    Login
+                </Ok>
+            
+        </Conteiner>
+        </All >
     );
 }
