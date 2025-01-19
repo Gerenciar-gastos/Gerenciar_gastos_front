@@ -25,17 +25,17 @@ export const Conteiner = styled.div`
 
 export const LogoLogin = styled.div`
   background-color: #0ce1e8;
-  width: 250px;  
-  height: 250px;
+  width: 200px;  
+  height: 200px;
   border-radius: 50%;
   position: fixed;
-  top: 10px;
+  top: 1px;
   display: flex;
   justify-content: center;
   align-items: center;
    svg {
     color: #e30de3; 
-    font-size: 10rem; 
+    font-size: 8rem; 
   }
 `;
 
@@ -43,7 +43,7 @@ export const EmailCpf = styled.div`
   background-color: #ec2207;
   width: 85vw;  
   height: 10vh;
-  margin-top: 160px;
+  margin-top: 130px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,7 +60,7 @@ export const IconeEmailCpf = styled.div`
   border-radius: 4px;
   svg {
     color: #e30de3; 
-    font-size: 4rem; 
+    font-size: 3rem; 
   }
 `;
 
@@ -84,7 +84,7 @@ export const PassWord = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  margin-top: -50px;
+  margin-top: -30px;
 `;
 
 export const IconePassword = styled.div`
@@ -97,7 +97,7 @@ export const IconePassword = styled.div`
   border-radius: 4px;
   svg {
     color: #e30de3; 
-    font-size: 4rem; 
+    font-size: 3rem; 
   }
 `;
 
@@ -167,9 +167,10 @@ export const Ok = styled.div`
   background-color: #63f40f;
   width: 70vw;   
   height: 10vh;
-  font-size: 70px;
+  font-size: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
+  color: black
 `;
