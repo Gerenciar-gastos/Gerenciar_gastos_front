@@ -1,15 +1,12 @@
 import { useState } from "react";
-import { All, Conteiner, InputInformation, PassWord, IconePassword, InputPassword, Ok, IconeName, InputName, IconeEmail, InputEmail, IconeCpf, InputCpf } from "../styled/userStyled/register";
-import { FaUser } from "react-icons/fa6";
+import { All, Conteiner, PassWord, IconePassword, InputPassword, Ok } from "../styled/userStyled/register";
 import { GiPadlock } from "react-icons/gi";
-import { formatCpf } from "../utils/formatCpf";
-import { MdEmail } from "react-icons/md";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { Name } from "../components/register/Name";
 import { Email } from "../components/register/Email";
 import { Cpf } from "../components/register/Cpf";
-
+import { Password } from "../components/register/Password";
 
 
 export default function Register() {
@@ -30,10 +27,6 @@ export default function Register() {
         }
     }
 
-    function togglePasswordVisibility() {
-        setShowPassword(!showPassword);
-    }
-
     function toggleConfirmPasswordVisibility() {
         setShowConfirmPassword(!showConfirmPassword);
     }
@@ -44,20 +37,9 @@ export default function Register() {
                 <Name name={name} setName={setName} />
                 <Email email={email} setEmail={setEmail} />
                 <Cpf cpf={cpf} setCpf={setCpf} />
-                <PassWord>
-                    <IconePassword>
-                        <GiPadlock />
-                    </IconePassword>
-                    <InputPassword
-                        type={showPassword ? "text" : "password"}
-                        placeholder="Digite a senha"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                    <button type="button" onClick={togglePasswordVisibility} style={{ background: 'none', border: 'none' }}>
-                        {showPassword ? <FaEye style={{ fontSize: "30px", color: "#E837AB" }} /> : <FaEyeSlash style={{ fontSize: "30px", color: "#E837AB" }} />}
-                    </button>
-                </PassWord>
+                <Password password={password} setPassword={setPassword} setShowPassword={setShowPassword} showPassword={showPassword} />
+
+
                 <PassWord>
                     <IconePassword>
                         <GiPadlock />
