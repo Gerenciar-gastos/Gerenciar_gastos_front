@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { All, Conteiner, ConteinerSavePassword, EmailCpf, IconeEmailCpf, IconePassword, InputEmailCpf, InputPassword, LogoLogin, Ok, PassWord, Register, SavePassword, SavePasswordRegister } from "../styled/loginStyled";
+import { All, Conteiner, ConteinerSavePassword, EmailCpf, IconeEmailCpf, IconePassword, InputEmailCpf, InputPassword, LogoLogin, Ok, PassWord, Register, SavePassword, SavePasswordRegister } from "../styled/userStyled/loginStyled";
 import { FaUser } from "react-icons/fa6";
 import { GiPadlock } from "react-icons/gi";
 import { AiOutlineCheck } from "react-icons/ai";
@@ -34,11 +34,11 @@ export default function Login() {
             localStorage.removeItem('savedPassword');
         }
     };
-    const isButtonDisabled = !(cpcEmail && password);
+    const isButtonDisabled = !(cpcEmail && password)
 
-    function Login() {
+    function LoginPost() {
         console.log(cpcEmail)
-        const urlCode = `${import.meta.env.VITE_API_URL}/login`;
+        const urlCode = `${import.meta.env.VITE_API_URL}/user/login`;
         const data = {
             mode: cpcEmail,
             password
@@ -95,17 +95,17 @@ export default function Login() {
                 </SavePasswordRegister>
                 <Ok
                     type="button"
-                    onClick={Login}
+                    onClick={LoginPost}
                     style={{
-                        backgroundColor: isButtonDisabled ? '#ccc': '#E837AB' , // Cor depende de estar ou não habilitado
-                        cursor: isButtonDisabled ? 'not-allowed' : 'pointer'   // Altera o cursor
+                        backgroundColor: isButtonDisabled ? '#ccc' : '#E837AB', 
+                        cursor: isButtonDisabled ? 'not-allowed' : 'pointer' 
                     }}
-                    disabled={isButtonDisabled} 
+                    disabled={isButtonDisabled}
                 >
                     Login
                 </Ok>
-            
-        </Conteiner>
+
+            </Conteiner>
         </All >
     );
 }
