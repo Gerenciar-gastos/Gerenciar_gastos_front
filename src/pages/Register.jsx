@@ -1,12 +1,10 @@
 import { useState } from "react";
-import { All, Conteiner, PassWord, IconePassword, InputPassword, Ok } from "../styled/userStyled/register";
-import { GiPadlock } from "react-icons/gi";
-import { FaEye } from "react-icons/fa";
-import { FaEyeSlash } from "react-icons/fa";
+import { All, Conteiner, Ok } from "../styled/userStyled/register";
 import { Name } from "../components/register/Name";
 import { Email } from "../components/register/Email";
 import { Cpf } from "../components/register/Cpf";
 import { Password } from "../components/register/Password";
+import { ConfirmPassword } from "../components/register/ConfirmPassword";
 
 
 export default function Register() {
@@ -27,9 +25,6 @@ export default function Register() {
         }
     }
 
-    function toggleConfirmPasswordVisibility() {
-        setShowConfirmPassword(!showConfirmPassword);
-    }
 
     return (
         <All>
@@ -38,22 +33,7 @@ export default function Register() {
                 <Email email={email} setEmail={setEmail} />
                 <Cpf cpf={cpf} setCpf={setCpf} />
                 <Password password={password} setPassword={setPassword} setShowPassword={setShowPassword} showPassword={showPassword} />
-
-
-                <PassWord>
-                    <IconePassword>
-                        <GiPadlock />
-                    </IconePassword>
-                    <InputPassword
-                        type="text"
-                        placeholder="Confirme a senha a senha"
-                        value={confirmPassword}
-                        onChange={(e) => setConfirmPassword(e.target.value)}
-                    />
-                    <button type="button" onClick={toggleConfirmPasswordVisibility} style={{ background: 'none', border: 'none' }}>
-                        {showConfirmPassword ? <FaEye style={{ fontSize: "30px", color: "#E837AB" }} /> : <FaEyeSlash style={{ fontSize: "30px", color: "#E837AB" }} />}
-                    </button>
-                </PassWord>
+                < ConfirmPassword confirmPassword={confirmPassword} setConfirmPassword={setConfirmPassword} showConfirmPassword={showConfirmPassword} setShowConfirmPassword={setShowConfirmPassword} />
                 <Ok
                     type="button"
                     onClick={RegisterPost}
