@@ -8,6 +8,7 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { Name } from "../components/register/Name";
 import { Email } from "../components/register/Email";
+import { Cpf } from "../components/register/Cpf";
 
 
 
@@ -42,18 +43,7 @@ export default function Register() {
             <Conteiner>
                 <Name name={name} setName={setName} />
                 <Email email={email} setEmail={setEmail} />
-
-                <InputInformation>
-                    <IconeCpf>
-                        <FaUser />
-                    </IconeCpf>
-                    <InputCpf
-                        type="text"
-                        placeholder="Digite seu CPF"
-                        value={cpf}
-                        onChange={(e) => setCpf(formatCpf(e.target.value))}
-                    />
-                </InputInformation>
+                <Cpf cpf={cpf} setCpf={setCpf} />
                 <PassWord>
                     <IconePassword>
                         <GiPadlock />
