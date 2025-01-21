@@ -10,7 +10,7 @@ import { formatCpf } from '../utils/formatCpf';
 
 export default function Login() {
     const [isChecked, setIsChecked] = useState(false);
-    const [cpcEmail, setCpfEmail] = useState("")
+    const [cpfEmail, setCpfEmail] = useState("")
     const [password, setPassword] = useState("")
 
     useEffect(() => {
@@ -27,20 +27,20 @@ export default function Login() {
         setIsChecked(!isChecked);
 
         if (isChecked) {
-            localStorage.setItem('savedCpfEmail', cpcEmail);
+            localStorage.setItem('savedCpfEmail', cpfEmail);
             localStorage.setItem('savedPassword', password);
         } else {
             localStorage.removeItem('savedCpfEmail');
             localStorage.removeItem('savedPassword');
         }
     };
-    const isButtonDisabled = !(cpcEmail && password)
+    const isButtonDisabled = !(cpfEmail && password)
 
     function LoginPost() {
-        console.log(cpcEmail)
+        console.log(cpfEmail)
         const urlCode = `${import.meta.env.VITE_API_URL}/user/login`;
         const data = {
-            mode: cpcEmail,
+            mode: cpfEmail,
             password
         };
         const promise = axios.post(urlCode, data);
@@ -65,7 +65,7 @@ export default function Login() {
                     <InputEmailCpf
                         type="text"
                         placeholder="Digite seu email ou CPF"
-                        value={cpcEmail}
+                        value={cpfEmail}
                         onChange={(e) => setCpfEmail(formatCpf(e.target.value))}
                     />
                 </EmailCpf>
@@ -97,7 +97,7 @@ export default function Login() {
                     type="button"
                     onClick={LoginPost}
                     style={{
-                        backgroundColor: isButtonDisabled ? '#ccc' : '#E837AB', 
+                        backgroundColor: isButtonDisabled ? 'rgba(255, 255, 255, 0.5)' : '#E837AB', 
                         cursor: isButtonDisabled ? 'not-allowed' : 'pointer' 
                     }}
                     disabled={isButtonDisabled}
