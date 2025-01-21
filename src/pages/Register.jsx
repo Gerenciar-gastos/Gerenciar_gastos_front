@@ -6,6 +6,8 @@ import { formatCpf } from "../utils/formatCpf";
 import { MdEmail } from "react-icons/md";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+import { Name } from "../components/register/Name";
+import { Email } from "../components/register/Email";
 
 
 
@@ -38,28 +40,9 @@ export default function Register() {
     return (
         <All>
             <Conteiner>
-                <InputInformation>
-                    <IconeName>
-                        <FaUser />
-                    </IconeName>
-                    <InputName
-                        type="text"
-                        placeholder="Nome Completo"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                    />
-                </InputInformation>
-                <InputInformation>
-                    <IconeEmail>
-                        <MdEmail />
-                    </IconeEmail>
-                    <InputEmail
-                        type="text"
-                        placeholder="Digite seu email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                </InputInformation>
+                <Name name={name} setName={setName} />
+                <Email email={email} setEmail={setEmail} />
+
                 <InputInformation>
                     <IconeCpf>
                         <FaUser />
