@@ -5,6 +5,8 @@ import { Email } from "../components/register/Email";
 import { Cpf } from "../components/register/Cpf";
 import { Password } from "../components/register/Password";
 import { ConfirmPassword } from "../components/register/ConfirmPassword";
+import axios from "axios";
+import { useNavigate } from "react-router-dom"; 
 
 
 export default function Register() {
@@ -15,13 +17,30 @@ export default function Register() {
     const [confirmPassword, setConfirmPassword] = useState("")
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
+    const navigate = useNavigate(); 
 
     const isButtonDisabled = !(cpf && password && name && email && confirmPassword)
 
     function RegisterPost() {
+        console.log(cpf)
         if (password !== confirmPassword) {
             window.alert("As senhas não conferem");
+        }else{
+            const urlCode = `${import.meta.env.VITE_API_URL}/user/register`;
+            const data = {
+                name,
+                password,
+                cpf,
+                email,
+            };
+            const promise = axios.post(urlCode, data);
+            promise.then(() => {
+                console.log("cadastro realizado")
+                navigate("/login");
+            });
+            promise.catch((err) => {
+                console.log(err.response);
+            });
         }
     }
 

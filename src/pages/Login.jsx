@@ -6,12 +6,14 @@ import { AiOutlineCheck } from "react-icons/ai";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { formatCpf } from '../utils/formatCpf';
+import { useNavigate } from "react-router-dom"; 
 
 
 export default function Login() {
     const [isChecked, setIsChecked] = useState(false);
     const [cpfEmail, setCpfEmail] = useState("")
     const [password, setPassword] = useState("")
+    const navigate = useNavigate(); 
 
     useEffect(() => {
         const savedCpfEmail = localStorage.getItem('savedCpfEmail');
@@ -20,6 +22,16 @@ export default function Login() {
             setCpfEmail(savedCpfEmail);
             setPassword(savedPassword);
             setIsChecked(true);
+        }
+        const token = localStorage.getItem('authToken');
+        if (token) {
+            const decodedToken = JSON.parse(atob(token.split('.')[1]));
+            const isTokenExpired = decodedToken.exp * 1000 < Date.now();
+            if (isTokenExpired) {
+                alert('Sessão expirada, faça login novamente.');
+                localStorage.removeItem('authToken');
+                navigate('/login');
+            }
         }
     }, []);
 
@@ -37,19 +49,19 @@ export default function Login() {
     const isButtonDisabled = !(cpfEmail && password)
 
     function LoginPost() {
-        console.log(cpfEmail)
+        console.log(cpfEmail, password )
         const urlCode = `${import.meta.env.VITE_API_URL}/user/login`;
         const data = {
             mode: cpfEmail,
             password
         };
-        const promise = axios.post(urlCode, data);
-        promise.then(() => {
-            console.log("aqui")
-        });
-        promise.catch((err) => {
-            console.log(err.response);
-        });
+        axios.post(urlCode, data)
+            .then((response) => {
+                    navigate("/home");
+            })
+            .catch((err) => {
+                console.error('Erro na requisição:', err.response?.data || err.message);
+            });
     }
 
     return (
