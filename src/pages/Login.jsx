@@ -16,24 +16,25 @@ export default function Login() {
     const navigate = useNavigate(); 
 
     useEffect(() => {
-        const savedCpfEmail = localStorage.getItem('savedCpfEmail');
-        const savedPassword = localStorage.getItem('savedPassword');
-        if (savedCpfEmail && savedPassword) {
-            setCpfEmail(savedCpfEmail);
-            setPassword(savedPassword);
-            setIsChecked(true);
-        }
         const token = localStorage.getItem('authToken');
         if (token) {
-            const decodedToken = JSON.parse(atob(token.split('.')[1]));
-            const isTokenExpired = decodedToken.exp * 1000 < Date.now();
-            if (isTokenExpired) {
-                alert('Sessão expirada, faça login novamente.');
+            try {
+                const decodedToken = JSON.parse(atob(token.split('.')[1]));
+                const isTokenExpired = decodedToken.exp * 1000 < Date.now();
+                if (isTokenExpired) {
+                    alert('Sessão expirada, faça login novamente.');
+                    localStorage.removeItem('authToken');
+                    navigate('/login');
+                } else {
+                    navigate('/home'); 
+                }
+            } catch (error) {
+                console.error('Erro ao decodificar token:', error);
                 localStorage.removeItem('authToken');
-                navigate('/login');
             }
         }
-    }, []);
+    }, [navigate]);
+
 
     const handleCheckboxClick = () => {
         setIsChecked(!isChecked);
@@ -57,7 +58,11 @@ export default function Login() {
         };
         axios.post(urlCode, data)
             .then((response) => {
-                    navigate("/home");
+                const token = response.data[1].token; 
+                if (token) {
+                    localStorage.setItem('authToken', token); 
+                    navigate("/home"); 
+                }
             })
             .catch((err) => {
                 console.error('Erro na requisição:', err.response?.data || err.message);
