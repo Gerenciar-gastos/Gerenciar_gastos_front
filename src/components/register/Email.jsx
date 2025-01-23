@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-import { IconeEmail, InputEmail, InputInformation } from "../../styled/userStyled/register";
 import { MdEmail } from "react-icons/md";
+import { IconeEmail, InputEmail, InputInformation } from "../../assets/styled/userStyled/registerStyled";
 
 
 export function Email({email, setEmail}) {

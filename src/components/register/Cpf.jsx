@@ -1,6 +1,6 @@
-import { FaUser } from "react-icons/fa6";
-import { IconeCpf, InputCpf, InputInformation } from "../../styled/userStyled/register";
 import PropTypes from "prop-types";
+import { FaUser } from "react-icons/fa6";
+import { IconeCpf, InputCpf, InputInformation } from "../../assets/styled/userStyled/registerStyled";
 import { formatCpf } from "../../utils/formatCpf";
 
 

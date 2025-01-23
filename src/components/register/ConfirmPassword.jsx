@@ -1,8 +1,7 @@
-import { IconePassword, InputPassword, PassWord } from "../../styled/userStyled/register";
 import PropTypes from "prop-types";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { GiPadlock } from "react-icons/gi";
-import { FaEye } from "react-icons/fa";
-import { FaEyeSlash } from "react-icons/fa";
+import { IconePassword, InputPassword, PassWord } from "../../assets/styled/userStyled/registerStyled";
 
 export function ConfirmPassword({ confirmPassword, setConfirmPassword, showConfirmPassword, setShowConfirmPassword }) {
 

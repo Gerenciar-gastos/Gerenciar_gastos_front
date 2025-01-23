@@ -1,6 +1,6 @@
-import { FaUser } from "react-icons/fa6";
-import { IconeName, InputInformation, InputName } from "../../styled/userStyled/register";
 import PropTypes from "prop-types";
+import { FaUser } from "react-icons/fa6";
+import { IconeName, InputInformation, InputName } from "../../assets/styled/userStyled/registerStyled";
 
 
 export function Name({name, setName}){

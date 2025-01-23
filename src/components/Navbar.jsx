@@ -1,20 +1,16 @@
 
-
-import styled from "styled-components";
+import { All, Conteiner } from "../assets/styled/navbarStyled/navbarStyled";
+import craiyon from "../assets/images/craiyon.png"
 
 
 export default function NavBar() {
 
-
     return (
-        <Menu>
-
-            aqui
-        </Menu >
+        <All>
+            <Conteiner>
+                <image src={craiyon}/>
+            </Conteiner>
+        </All >
     );
 }
 
-const Menu = styled.div`
-  background-color: black;
-  color: aliceblue;
-`;

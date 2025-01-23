@@ -1,12 +1,12 @@
-import { useState } from "react";
-import { All, Conteiner, Ok } from "../styled/userStyled/register";
-import { Name } from "../components/register/Name";
-import { Email } from "../components/register/Email";
-import { Cpf } from "../components/register/Cpf";
-import { Password } from "../components/register/Password";
-import { ConfirmPassword } from "../components/register/ConfirmPassword";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"; 
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { All, Conteiner, Ok } from "../assets/styled/userStyled/registerStyled";
+import { ConfirmPassword } from "../components/register/ConfirmPassword";
+import { Cpf } from "../components/register/Cpf";
+import { Email } from "../components/register/Email";
+import { Name } from "../components/register/Name";
+import { Password } from "../components/register/Password";
 
 
 export default function Register() {

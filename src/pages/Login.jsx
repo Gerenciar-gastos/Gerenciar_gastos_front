@@ -1,12 +1,11 @@
+import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { All, Conteiner, ConteinerSavePassword, EmailCpf, IconeEmailCpf, IconePassword, InputEmailCpf, InputPassword, LogoLogin, Ok, PassWord, Register, SavePassword, SavePasswordRegister } from "../styled/userStyled/loginStyled";
+import { AiOutlineCheck } from "react-icons/ai";
 import { FaUser } from "react-icons/fa6";
 import { GiPadlock } from "react-icons/gi";
-import { AiOutlineCheck } from "react-icons/ai";
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
+import { All, Conteiner, ConteinerSavePassword, EmailCpf, IconeEmailCpf, IconePassword, InputEmailCpf, InputPassword, LogoLogin, Ok, PassWord, Register, SavePassword, SavePasswordRegister } from "../assets/styled/userStyled/loginStyled";
 import { formatCpf } from '../utils/formatCpf';
-import { useNavigate } from "react-router-dom"; 
 
 
 export default function Login() {
