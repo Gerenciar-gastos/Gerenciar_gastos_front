@@ -22,7 +22,6 @@ export default function Register() {
     const isButtonDisabled = !(cpf && password && name && email && confirmPassword)
 
     function RegisterPost() {
-        console.log(cpf)
         if (password !== confirmPassword) {
             window.alert("As senhas não conferem");
         }else{

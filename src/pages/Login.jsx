@@ -49,7 +49,6 @@ export default function Login() {
     const isButtonDisabled = !(cpfEmail && password)
 
     function LoginPost() {
-        console.log(cpfEmail, password )
         const urlCode = `${import.meta.env.VITE_API_URL}/user/login`;
         const data = {
             mode: cpfEmail,
