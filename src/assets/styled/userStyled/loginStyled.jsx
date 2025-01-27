@@ -101,7 +101,7 @@ export const IconePassword = styled.div`
 
 export const InputPassword = styled.input`
   background-color: rgba(255, 255, 255, 0.0);
-  width: 70vw;  
+  width: 67vw;  
   height: 8vh; 
   padding: 10px; 
   border: 1px solid #ccc; 

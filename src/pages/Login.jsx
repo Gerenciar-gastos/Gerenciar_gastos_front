@@ -6,6 +6,7 @@ import { GiPadlock } from "react-icons/gi";
 import { Link, useNavigate } from 'react-router-dom';
 import { All, Conteiner, ConteinerSavePassword, EmailCpf, IconeEmailCpf, IconePassword, InputEmailCpf, InputPassword, LogoLogin, Ok, PassWord, Register, SavePassword, SavePasswordRegister } from "../assets/styled/userStyled/loginStyled";
 import { formatCpf } from '../utils/formatCpf';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 
 export default function Login() {
@@ -13,7 +14,7 @@ export default function Login() {
     const [cpfEmail, setCpfEmail] = useState("")
     const [password, setPassword] = useState("")
     const navigate = useNavigate(); 
-
+    const [showPassword, setShowPassword] = useState(false)
     useEffect(() => {
         const token = localStorage.getItem('authToken');
         if (token) {
@@ -66,6 +67,9 @@ export default function Login() {
                 console.error('Erro na requisição:', err.response?.data || err.message);
             });
     }
+    function togglePasswordVisibility() {
+        setShowPassword(!showPassword);
+    }
 
     return (
         <All>
@@ -89,11 +93,14 @@ export default function Login() {
                         <GiPadlock />
                     </IconePassword>
                     <InputPassword
-                        type="text"
+                        type={showPassword ? "text" : "password"}
                         placeholder="Digite a senha"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
+                    <button type="button" onClick={togglePasswordVisibility} style={{ background: 'none', border: 'none' }}>
+                        {showPassword ? <FaEye style={{ fontSize: "30px", color: "#E837AB" }} /> : <FaEyeSlash style={{ fontSize: "30px", color: "#E837AB" }} />}
+                    </button>
                 </PassWord>
                 <SavePasswordRegister>
                     <SavePassword>
