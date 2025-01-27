@@ -1,4 +1,4 @@
-import { All, Month } from "../assets/styled/homeStyled/MonthStyled";
+import { All, Month, Name, Percentage } from "../assets/styled/homeStyled/MonthStyled";
 import NavBar from "../components/Navbar";
 
 export default function Home() {
@@ -6,10 +6,24 @@ export default function Home() {
     return (
         <All>
             <NavBar />
-            <Month></Month>
-            <Month></Month>
+            <Month>
+                <Name>
+                    mes
+                </Name>
+                <Percentage>
+                    %
+                </Percentage>
+            </Month>
+            <Month>
+                <Name>
+                    mes
+                </Name>
+                <Percentage>
+                    %
+                </Percentage>
+            </Month>
             <></>
-            
+
         </All>
 
     );
