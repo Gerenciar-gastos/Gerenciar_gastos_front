@@ -31,6 +31,7 @@ export const Name = styled.div`
   display: flex; 
   justify-content: center;
   align-items: center;
+  font-size: 30px;
 `;
 
 export const Percentage = styled.div`
@@ -41,5 +42,10 @@ export const Percentage = styled.div`
   display: flex; 
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  font-size: 30px;
+  p{
+    margin-bottom: 20%;
+  }
 `;
 

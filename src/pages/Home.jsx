@@ -34,6 +34,7 @@ export default function Home() {
                 <Month key={month.id}>
                     <Name>{month.name}</Name>
                     <Percentage>
+                        <p>Total gasto</p>
                         {((month.totalSpent / month.totalFunds) * 100).toFixed(2)}%
                     </Percentage>
                 </Month>
