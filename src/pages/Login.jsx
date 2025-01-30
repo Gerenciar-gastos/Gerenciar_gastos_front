@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { AiOutlineCheck } from "react-icons/ai";
 import { FaUser } from "react-icons/fa6";
 import { GiPadlock } from "react-icons/gi";
@@ -7,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { All, Conteiner, ConteinerSavePassword, EmailCpf, IconeEmailCpf, IconePassword, InputEmailCpf, InputPassword, LogoLogin, Ok, PassWord, Register, SavePassword, SavePasswordRegister } from "../assets/styled/userStyled/loginStyled";
 import { formatCpf } from '../utils/formatCpf';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { AuthContext } from '../contexts/contex';
 
 
 export default function Login() {
@@ -14,6 +15,8 @@ export default function Login() {
     const [cpfEmail, setCpfEmail] = useState("")
     const [password, setPassword] = useState("")
     const navigate = useNavigate(); 
+    const { setToken } = useContext(AuthContext);
+
     const [showPassword, setShowPassword] = useState(false)
     useEffect(() => {
         const token = localStorage.getItem('authToken');
@@ -24,7 +27,7 @@ export default function Login() {
                 if (isTokenExpired) {
                     alert('Sessão expirada, faça login novamente.');
                     localStorage.removeItem('authToken');
-                    navigate('/login');
+                    navigate('/');
                 } else {
                     navigate('/home'); 
                 }
@@ -57,7 +60,8 @@ export default function Login() {
         };
         axios.post(urlCode, data)
             .then((response) => {
-                const token = response.data[1].token; 
+                const token = response.data[1].token;
+                setToken(token)
                 if (token) {
                     localStorage.setItem('authToken', token); 
                     navigate("/home"); 

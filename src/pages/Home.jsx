@@ -1,4 +1,4 @@
-import { All, Month, Name, Percentage } from "../assets/styled/homeStyled/MonthStyled";
+import { All, Month, Name, Percentage } from "../assets/styled/homeStyled/monthStyled";
 import NavBar from "../components/Navbar";
 
 export default function Home() {
