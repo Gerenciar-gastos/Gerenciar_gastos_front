@@ -34,7 +34,6 @@ export default function Register() {
             };
             const promise = axios.post(urlCode, data);
             promise.then(() => {
-                console.log("cadastro realizado")
                 navigate("/login");
             });
             promise.catch((err) => {

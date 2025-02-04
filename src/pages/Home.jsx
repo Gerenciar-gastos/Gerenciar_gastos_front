@@ -19,7 +19,6 @@ export default function Home() {
             headers: { Authorization: `Bearer ${authToken}` } 
         })
             .then((response) => {
-                console.log("Dados recebidos:", response.data);
                 setData(response.data);
             })
             .catch((error) => {
