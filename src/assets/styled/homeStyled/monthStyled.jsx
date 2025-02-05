@@ -55,16 +55,43 @@ export const MonthAdd = styled.div`
   height: 40vh;  
   color: #a70ee9;
   display: flex; 
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   flex-direction: column;
   font-size: 30px;
-  p{
-    margin-bottom: 20%;
-  }
-  svg {
-    color: #e30de3; 
-    font-size: 3rem;
-    margin-top : 20px ;
+  button{
+    background-color: rgba(255, 255, 255, 0.0);
+    width:18vw;  
+    height: 5vh; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    font-size: 20px; 
+    outline: none; 
+    box-sizing: border-box; 
   }
 `;
+
+export const InputName = styled.input`
+  background-color: rgba(255, 255, 255, 0.0);
+  width:18vw;  
+  height: 5vh; 
+  padding: 10px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  font-size: 20px; 
+  outline: none; 
+  box-sizing: border-box; 
+`;
+
+export const InputtotalFunds = styled.input`
+  background-color: rgba(255, 255, 255, 0.0);
+  width:18vw;  
+  height: 5vh; 
+  padding: 10px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  font-size: 20px; 
+  outline: none; 
+  box-sizing: border-box; 
+`;
+
