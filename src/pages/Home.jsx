@@ -1,8 +1,9 @@
 import { useContext, useEffect, useState } from "react";
-import { All, Month, Name, Percentage } from "../assets/styled/homeStyled/monthStyled";
+import { All, Month, Name, Percentage, MonthAdd } from "../assets/styled/homeStyled/monthStyled";
 import NavBar from "../components/Navbar";
 import { AuthContext } from "../contexts/contex";
 import axios from "axios";
+import { FaPen } from "react-icons/fa";
 
 
 export default function Home() {
@@ -38,6 +39,12 @@ export default function Home() {
                     </Percentage>
                 </Month>
             ))}
+            <MonthAdd >
+                <Name>
+                    Adicionar mes
+                </Name>
+                <FaPen  />
+            </MonthAdd>
         </All>
 
     );

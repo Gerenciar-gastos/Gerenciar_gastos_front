@@ -49,3 +49,22 @@ export const Percentage = styled.div`
   }
 `;
 
+export const MonthAdd = styled.div`
+  background-color: rgba(80, 235, 8, 0.865);
+  width: 20vw;  
+  height: 40vh;  
+  color: #a70ee9;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 30px;
+  p{
+    margin-bottom: 20%;
+  }
+  svg {
+    color: #e30de3; 
+    font-size: 3rem;
+    margin-top : 20px ;
+  }
+`;
