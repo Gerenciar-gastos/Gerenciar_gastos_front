@@ -21,6 +21,7 @@ export const Month = styled.div`
   align-items: center;
   border-radius: 10px;
   flex-direction: column;
+  text-align:center;
 `;
 
 export const Name = styled.div`
@@ -59,6 +60,8 @@ export const MonthAdd = styled.div`
   align-items: center;
   flex-direction: column;
   font-size: 30px;
+  border-radius: 10;
+  text-align:center;
   button{
     background-color: rgba(255, 255, 255, 0.0);
     width:18vw;  
@@ -68,6 +71,7 @@ export const MonthAdd = styled.div`
     font-size: 20px; 
     outline: none; 
     box-sizing: border-box; 
+    text-align:center;
   }
 `;
 
