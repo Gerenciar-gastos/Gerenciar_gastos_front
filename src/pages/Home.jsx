@@ -2,8 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { All, Month, Name, Percentage, MonthAdd, InputName, InputtotalFunds } from "../assets/styled/homeStyled/monthStyled";
 import NavBar from "../components/Navbar";
 import { AuthContext } from "../contexts/contex";
-import axios from "axios";
 import registerNewMonth from "../components/home/registerNewMonth";
+import fetchData from "../components/home/fetchData";
 
 
 export default function Home() {
@@ -14,22 +14,9 @@ export default function Home() {
     const [nameMonth, setNameMonth] = useState("")
     const [totalFunds, setTotalFunds] = useState()
 
-    function fetchData () {
-        const urlCode = `${import.meta.env.VITE_API_URL}/home`;
-
-        axios.get(urlCode, {
-            headers: { Authorization: `Bearer ${authToken}` }
-        })
-            .then((response) => {
-                setData(response.data);
-            })
-            .catch((error) => {
-                console.error("Erro ao buscar dados:", error);
-            });
-    };
-
+    
     useEffect(() => {
-        fetchData();
+        fetchData(authToken, setData);
     }, [authToken]);
   
     return (
