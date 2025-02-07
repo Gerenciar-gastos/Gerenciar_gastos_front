@@ -14,11 +14,11 @@ export default function Home() {
     const [nameMonth, setNameMonth] = useState("")
     const [totalFunds, setTotalFunds] = useState()
 
-    useEffect(() => {
+    function fetchData () {
         const urlCode = `${import.meta.env.VITE_API_URL}/home`;
 
         axios.get(urlCode, {
-            headers: { Authorization: `Bearer ${authToken}` } 
+            headers: { Authorization: `Bearer ${authToken}` }
         })
             .then((response) => {
                 setData(response.data);
@@ -26,14 +26,16 @@ export default function Home() {
             .catch((error) => {
                 console.error("Erro ao buscar dados:", error);
             });
+    };
+
+    useEffect(() => {
+        fetchData();
     }, [authToken]);
-
-
   
     return (
         <All>
             <NavBar />
-            {data?.Month?.map((month) => (
+            {data?.Month?.slice(-2).map((month) => (
                 <Month key={month.id}>
                     <Name>{month.name}</Name>
                     <Percentage>
@@ -58,7 +60,7 @@ export default function Home() {
                     value={totalFunds}
                     onChange={(e) => setTotalFunds(Number(e.target.value))}
                 />
-                <button onClick={() => registerNewMonth(nameMonth, totalFunds, authToken)}>
+                <button onClick={() => registerNewMonth(nameMonth, totalFunds, authToken, setNameMonth, setTotalFunds, fetchData)}>
                     Enviar
                 </button>
             </MonthAdd>
