@@ -3,6 +3,7 @@ import { All, Month, Name, Percentage, MonthAdd, InputName, InputtotalFunds } fr
 import NavBar from "../components/Navbar";
 import { AuthContext } from "../contexts/contex";
 import axios from "axios";
+import registerNewMonth from "../components/home/registerNewMonth";
 
 
 export default function Home() {
@@ -28,23 +29,7 @@ export default function Home() {
     }, [authToken]);
 
 
-    function registerNewMonth(){
-        console.log("aqui")
-        const urlCode = `${import.meta.env.VITE_API_URL}/home/month`;
-        const data = {
-            name: nameMonth,
-            totalFunds
-        };
-        axios.post(urlCode, data, {
-            headers: { Authorization: `Bearer ${authToken}` }
-        })
-            .then((response) => {
-                console.log("deu certo")
-            })
-            .catch((error) => {
-                console.error("Erro ao buscar dados:", error);
-            });
-    }
+  
     return (
         <All>
             <NavBar />
@@ -73,7 +58,7 @@ export default function Home() {
                     value={totalFunds}
                     onChange={(e) => setTotalFunds(Number(e.target.value))}
                 />
-                <button onClick={registerNewMonth} >
+                <button onClick={() => registerNewMonth(nameMonth, totalFunds, authToken)}>
                     Enviar
                 </button>
             </MonthAdd>
