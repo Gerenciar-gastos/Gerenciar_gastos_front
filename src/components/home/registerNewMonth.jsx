@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default function registerNewMonth(nameMonth, totalFunds, authToken, setNameMonth, setTotalFunds, fetchData) {
+export default function registerNewMonth(nameMonth, totalFunds, authToken, setNameMonth, setTotalFunds, setData, fetchData) {
     const urlCode = `${import.meta.env.VITE_API_URL}/home/month`;
     const data = {
         name: nameMonth,
@@ -12,9 +12,10 @@ export default function registerNewMonth(nameMonth, totalFunds, authToken, setNa
         .then(() => {
             setNameMonth("")
             setTotalFunds("")
-            fetchData()
+            fetchData(authToken, setData)
         })
         .catch((error) => {
             console.error("Erro ao buscar dados:", error.response);
+            alert(error.response.data)
         });
 }

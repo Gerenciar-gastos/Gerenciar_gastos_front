@@ -17,7 +17,7 @@ export default function Home() {
     }, [authToken]);
 
     const meses = [
-        "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+        "Janeiro", "Fevereiro", "Marco", "Abril", "Maio", "Junho",
         "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
     ];
 
@@ -48,7 +48,7 @@ export default function Home() {
                     value={totalFunds}
                     onChange={(e) => setTotalFunds(Number(e.target.value))}
                 />
-                <button onClick={() => registerNewMonth(nameMonth, totalFunds, authToken, setNameMonth, setTotalFunds, fetchData)}>
+                <button onClick={() => registerNewMonth(nameMonth, totalFunds, authToken, setNameMonth, setTotalFunds, setData, fetchData)}>
                     Enviar
                 </button>
             </MonthAdd>
