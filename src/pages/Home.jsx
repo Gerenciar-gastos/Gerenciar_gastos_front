@@ -1,24 +1,26 @@
 import { useContext, useEffect, useState } from "react";
-import { All, Month, Name, Percentage, MonthAdd, InputName, InputtotalFunds } from "../assets/styled/homeStyled/monthStyled";
+import { All, Month, Name, Percentage, MonthAdd, InputtotalFunds, SelectMonth, Option } from "../assets/styled/homeStyled/monthStyled";
 import NavBar from "../components/Navbar";
 import { AuthContext } from "../contexts/contex";
 import registerNewMonth from "../components/home/registerNewMonth";
 import fetchData from "../components/home/fetchData";
 
-
 export default function Home() {
- 
     const { token } = useContext(AuthContext);
     const [authToken, setAuthToken] = useState(localStorage.getItem("authToken") || token);
     const [data, setData] = useState(null);
-    const [nameMonth, setNameMonth] = useState("")
-    const [totalFunds, setTotalFunds] = useState()
+    const [nameMonth, setNameMonth] = useState("");
+    const [totalFunds, setTotalFunds] = useState();
 
-    
     useEffect(() => {
         fetchData(authToken, setData);
     }, [authToken]);
-  
+
+    const meses = [
+        "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+        "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+    ];
+
     return (
         <All>
             <NavBar />
@@ -31,18 +33,17 @@ export default function Home() {
                     </Percentage>
                 </Month>
             ))}
-            <MonthAdd  >
-                <Name>
-                    Adicionar mes
-                </Name>
-                <InputName
-                    type="text"
-                    placeholder="Digite o mês"
-                    value={nameMonth}
-                    onChange={(e) => setNameMonth(e.target.value)}
-                />
+            <MonthAdd>
+                <Name>Adicionar mês</Name>
+                <SelectMonth value={nameMonth} onChange={(e) => setNameMonth(e.target.value)}>
+                    {meses.map((mes) => (
+                        <Option key={mes} value={mes}>
+                            {mes}
+                        </Option>
+                    ))}
+                </SelectMonth>
                 <InputtotalFunds
-                    type="number" 
+                    type="number"
                     placeholder="Digite o total de fundos"
                     value={totalFunds}
                     onChange={(e) => setTotalFunds(Number(e.target.value))}
@@ -52,6 +53,5 @@ export default function Home() {
                 </button>
             </MonthAdd>
         </All>
-
     );
 }

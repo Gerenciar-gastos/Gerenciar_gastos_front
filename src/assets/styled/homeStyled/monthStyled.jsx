@@ -75,6 +75,27 @@ export const MonthAdd = styled.div`
   }
 `;
 
+export const SelectMonth = styled.select`
+    width: 90%; 
+    padding: 8px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    outline: none;
+    
+    &:focus {
+        border-color: #a70ee9;
+        background-color : #a70ee9;
+    }
+`;
+
+export const Option = styled.option`
+    background-color: white;
+    font-size: 16px;
+`;
+
 export const InputName = styled.input`
   background-color: rgba(255, 255, 255, 0.0);
   width:18vw;  
