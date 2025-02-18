@@ -4,7 +4,6 @@ import NavBar from "../components/Navbar";
 import { AuthContext } from "../contexts/contex";
 import registerNewMonth from "../components/home/registerNewMonth";
 import fetchData from "../components/home/fetchData";
-import { FaPen } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 
@@ -33,7 +32,7 @@ export default function Home() {
                     <div >
                         <Name>{month.name}</Name>
                         <FaPenStyled
-                            onClick={() => navigate('/')} />
+                            onClick={() => navigate('/monthEdition')} />
                     </div>
                     <Percentage>
                         <p>Total gasto</p>

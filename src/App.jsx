@@ -3,6 +3,7 @@ import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 import Home from "./pages/Home.jsx";
 import AuthProvider from "./contexts/contex.jsx";
+import MonthEdition from "./pages/MonthEdition.jsx";
 
 
 function App() {
@@ -15,7 +16,8 @@ function App() {
           <Route path='/' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/home' element={<Home />} />
-         
+          <Route path='/monthEdition' element={<MonthEdition />} />
+
         </Routes>
       </AuthProvider>
     </BrowserRouter>
