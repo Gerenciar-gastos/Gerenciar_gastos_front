@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { FaPen } from "react-icons/fa";
 
 
 export const All = styled.div`
@@ -36,13 +37,22 @@ export const Month = styled.div`
 export const Name = styled.div`
   background-color: rgba(8, 16, 235, 0.5);
   color: #a70ee9;
-  width: 100%;  
+  width: 90%;  
   height: 10vh;
   display: flex; 
   justify-content: center;
   align-items: center;
   font-size: 30px;
   margin-right: 10%;
+`;
+
+export const FaPenStyled = styled(FaPen)`
+  cursor: pointer;
+  font-size: 40px; 
+  color: #000; 
+  &:hover {
+    color: #007bff; 
+  }
 `;
 
 export const Percentage = styled.div`
@@ -72,17 +82,6 @@ export const MonthAdd = styled.div`
   font-size: 30px;
   border-radius: 10;
   text-align:center;
-  button{
-    background-color: rgba(255, 255, 255, 0.0);
-    width:18vw;  
-    height: 5vh; 
-    border: 1px solid #ccc; 
-    border-radius: 4px; 
-    font-size: 20px; 
-    outline: none; 
-    box-sizing: border-box; 
-    text-align:center;
-  }
 `;
 
 export const SelectMonth = styled.select`
@@ -129,4 +128,18 @@ export const InputtotalFunds = styled.input`
   outline: none; 
   box-sizing: border-box; 
 `;
+
+export const ToSend = styled.button`
+   background-color: rgba(255, 255, 255, 0.0);
+    width:18vw;  
+    height: 5vh; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    font-size: 20px; 
+    outline: none; 
+    box-sizing: border-box; 
+    text-align:center;
+    cursor: pointer;
+`;
+
 

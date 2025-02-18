@@ -1,10 +1,11 @@
 import { useContext, useEffect, useState } from "react";
-import { All, Month, Name, Percentage, MonthAdd, InputtotalFunds, SelectMonth, Option } from "../assets/styled/homeStyled/monthStyled";
+import { All, Month, Name, Percentage, MonthAdd, InputtotalFunds, SelectMonth, Option, FaPenStyled, ToSend } from "../assets/styled/homeStyled/monthStyled";
 import NavBar from "../components/Navbar";
 import { AuthContext } from "../contexts/contex";
 import registerNewMonth from "../components/home/registerNewMonth";
 import fetchData from "../components/home/fetchData";
 import { FaPen } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
     const [data, setData] = useState(null);
     const [nameMonth, setNameMonth] = useState("");
     const [totalFunds, setTotalFunds] = useState();
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchData(authToken, setData);
@@ -30,7 +32,8 @@ export default function Home() {
                 <Month key={month.id} >
                     <div >
                         <Name>{month.name}</Name>
-                        <FaPen />
+                        <FaPenStyled
+                            onClick={() => navigate('/')} />
                     </div>
                     <Percentage>
                         <p>Total gasto</p>
@@ -42,7 +45,7 @@ export default function Home() {
                 <Name>Adicionar mês</Name>
                 <SelectMonth value={nameMonth} onChange={(e) => setNameMonth(e.target.value)}>
                     <Option disabled value="">
-                        Selecione 
+                        Selecione
                     </Option>
                     {meses.map((mes) => (
                         <Option key={mes} value={mes}>
@@ -56,9 +59,9 @@ export default function Home() {
                     value={totalFunds}
                     onChange={(e) => setTotalFunds(Number(e.target.value))}
                 />
-                <button onClick={() => registerNewMonth(nameMonth, totalFunds, authToken, setNameMonth, setTotalFunds, setData, fetchData)}>
+                <ToSend onClick={() => registerNewMonth(nameMonth, totalFunds, authToken, setNameMonth, setTotalFunds, setData, fetchData)}>
                     Enviar
-                </button>
+                </ToSend>
             </MonthAdd>
         </All>
     );
