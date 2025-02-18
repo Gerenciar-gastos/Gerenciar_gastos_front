@@ -4,6 +4,8 @@ import NavBar from "../components/Navbar";
 import { AuthContext } from "../contexts/contex";
 import registerNewMonth from "../components/home/registerNewMonth";
 import fetchData from "../components/home/fetchData";
+import { FaPen } from "react-icons/fa";
+
 
 export default function Home() {
     const { token } = useContext(AuthContext);
@@ -25,8 +27,11 @@ export default function Home() {
         <All>
             <NavBar />
             {data?.Month?.slice(-2).map((month) => (
-                <Month key={month.id}>
-                    <Name>{month.name}</Name>
+                <Month key={month.id} >
+                    <div >
+                        <Name>{month.name}</Name>
+                        <FaPen />
+                    </div>
                     <Percentage>
                         <p>Total gasto</p>
                         {((month.totalSpent / month.totalFunds) * 100).toFixed(2)}%
@@ -36,6 +41,9 @@ export default function Home() {
             <MonthAdd>
                 <Name>Adicionar mês</Name>
                 <SelectMonth value={nameMonth} onChange={(e) => setNameMonth(e.target.value)}>
+                    <Option disabled value="">
+                        Selecione 
+                    </Option>
                     {meses.map((mes) => (
                         <Option key={mes} value={mes}>
                             {mes}

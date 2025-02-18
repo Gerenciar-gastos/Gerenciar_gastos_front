@@ -12,7 +12,7 @@ export const All = styled.div`
 `;
 
 export const Month = styled.div`
-  background-color: rgba(235, 8, 8, 0.5);
+  background-color: rgba(235, 235, 8, 0.5);
   color: #a70ee9;
   width: 20vw;  
   height: 40vh; 
@@ -22,17 +22,27 @@ export const Month = styled.div`
   border-radius: 10px;
   flex-direction: column;
   text-align:center;
+  div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    svg{
+      font-size: 40px; 
+      color: #000;  
+    }
+  }
 `;
 
 export const Name = styled.div`
-  background-color: rgba(87, 235, 8, 0.5);
+  background-color: rgba(8, 16, 235, 0.5);
   color: #a70ee9;
-  width: 20vw;  
+  width: 100%;  
   height: 10vh;
   display: flex; 
   justify-content: center;
   align-items: center;
   font-size: 30px;
+  margin-right: 10%;
 `;
 
 export const Percentage = styled.div`
