@@ -8,15 +8,15 @@ import { useNavigate } from "react-router-dom";
 
 
 export default function Home() {
-    const { token } = useContext(AuthContext);
-    const [authToken, setAuthToken] = useState(localStorage.getItem("authToken") || token);
-    const [data, setData] = useState(null);
+    const { authToken, data, setData } = useContext(AuthContext);
     const [nameMonth, setNameMonth] = useState("");
     const [totalFunds, setTotalFunds] = useState();
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetchData(authToken, setData);
+        if (authToken) {
+            fetchData(authToken, setData);
+        }
     }, [authToken]);
 
     const meses = [
@@ -31,8 +31,8 @@ export default function Home() {
                 <Month key={month.id} >
                     <div >
                         <Name>{month.name}</Name>
-                        <FaPenStyled
-                            onClick={() => navigate('/monthEdition')} />
+                        <FaPenStyled 
+                        onClick={() => navigate(`/monthEdition/${month.id}`)} />
                     </div>
                     <Percentage>
                         <p>Total gasto</p>

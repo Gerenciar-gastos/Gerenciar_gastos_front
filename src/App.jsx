@@ -16,7 +16,7 @@ function App() {
           <Route path='/' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/home' element={<Home />} />
-          <Route path='/monthEdition' element={<MonthEdition />} />
+          <Route path='/monthEdition/:id' element={<MonthEdition />} />
 
         </Routes>
       </AuthProvider>
