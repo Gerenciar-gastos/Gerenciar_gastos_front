@@ -14,9 +14,13 @@ export const Conteiner = styled.div`
  background-color: #f02816;
  color: #000000;
  width: 60vw;  
- height: 80vh; 
+ height: 90vh; 
  margin-right: 10px;
  margin-left: 10px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
 `;
 
 export const NameCard = styled.input`
@@ -64,26 +68,48 @@ export const Person = styled.select`
 `;
 
 export const Option = styled.option`
-    background-color: white;
-    font-size: 15px;
-    width: 100%;  
-    height: 100%;
-    color: black;
-    border: none;
+ background-color: white;
+ font-size: 15px;
+ width: 100%;  
+ height: 100%;
+ color: black;
+ border: none;
 `;
 
 export const Value = styled.input`
-  background-color: #e916f0;
-  color: #000000;
-  width: 100%;  
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  text-align: center;
-  font-size: 16px;
-  border: none;
+ background-color: #e916f0;
+ color: #000000;
+ width: 100%;  
+ height: 100%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ border: none;
+ text-align: center;
+ font-size: 16px;
+ border: none;
+`; 
+
+export const Add= styled.div`
+ background-color: #8316f0;
+ color: #000000;
+ width: 100%;  
+ height: 10%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
 `;
+
+export const AddToSend = styled.div`
+ background-color: #71f016;
+ color: #000000;
+ width: 80%;  
+ height: 10%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ margin-top: 10px;
+ border-radius: 10px;
+`
 
 
