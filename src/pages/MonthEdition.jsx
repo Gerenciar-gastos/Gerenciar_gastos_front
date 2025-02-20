@@ -1,27 +1,51 @@
-import { useContext } from "react";
-import { useParams } from "react-router-dom";
-import { All, Conteiner, NameCard, NamePersonValue, Name, Person, Value } from "../assets/styled/monthEditionStyled/monthEditionStyled";
-import { AuthContext } from "../contexts/contex";
+import { useState } from "react";
+import { All, Conteiner, NameCard, NamePersonValue, Name, Person, Value, Option } from "../assets/styled/monthEditionStyled/monthEditionStyled";
 
 export default function MonthEdition() {
-    const { data } = useContext(AuthContext);
-    const { id } = useParams(); 
+    const [name, setName] = useState("")
+    const [person, setPerson] = useState("")
+    const [value, setValue] = useState("")
 
-    const selectedMonth = data?.Month?.find((month) => month.id === Number(id));
+    const names = [
+        "Monique", "Lauro", "Sheure", "Senira", "Patrick", "Gerson",
+        "Juliele", "Lucimar"
+    ];
     return (
         <All>
-            {selectedMonth?.card.map((card) => (
-                <Conteiner key={card.id}>
-                    <NameCard>{card.name}</NameCard>
-                    {card.expense.map((expense) => (
-                        <NamePersonValue key={expense.id}>
-                            <Name>{expense.name}</Name>
-                            <Person>{expense.person}</Person>
-                            <Value>R$ {expense.value.toFixed(2)}</Value>
-                        </NamePersonValue>
-                    ))}
-                </Conteiner>
-            ))}
+            <Conteiner >
+                <NameCard
+                    type="string"
+                    placeholder="Digite o nome"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}>
+                </NameCard>
+                <NamePersonValue >
+                    <Name
+                        type="string"
+                        placeholder="Digite o nome"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                    ></Name>
+                    <Person as="select" value={person} onChange={(e) => setPerson(e.target.value)}>
+                        <Option disabled value="">
+                            Selecione
+                        </Option>
+                        {names.map((names) => (
+                            <Option key={names} value={names}>
+                                {names}
+                            </Option>
+                        ))}
+                    </Person>
+                    <Value
+                        type="number"
+                        placeholder="R$"
+                        value={value}
+                        onChange={(e) => setValue(e.target.value)}
+                    />
+                </NamePersonValue>
+
+            </Conteiner>
+
         </All>
     );
 }
