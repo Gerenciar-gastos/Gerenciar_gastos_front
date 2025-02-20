@@ -1,73 +1,103 @@
 import { useState } from "react";
-import { All, Conteiner, NameCard, NamePersonValue, Name, Person, Value, Option, Add, AddToSend } from "../assets/styled/monthEditionStyled/monthEditionStyled";
+import { All, Conteiner, NameCard, NamePersonValue, Name, Person, Value, Option, Add, AddToSend, AddCard, ContainerAddCard } from "../assets/styled/monthEditionStyled/monthEditionStyled";
 import { FiPlusSquare } from "react-icons/fi";
 
 export default function MonthEdition() {
-    const [nameCard, setNameCard] = useState(""); 
-    const [entries, setEntries] = useState([]); 
+    const [containers, setContainers] = useState([
+        { id: 1, nameCard: "", entries: [] }
+    ]);
 
     const names = [
         "Monique", "Lauro", "Sheure", "Senira", "Patrick", "Gerson",
         "Juliele", "Lucimar"
     ];
 
-    function addEntry ()  {
-        setEntries([...entries, { id: entries.length + 1, name: "", person: "", value: "" }]);
+    function addContainer() {
+        setContainers([...containers, { id: containers.length + 1, nameCard: "", entries: [] }]);
     };
 
-    function updateEntry (id, field, newValue)  {
-        setEntries(entries.map(entry =>
-            entry.id === id ? { ...entry, [field]: newValue } : entry
+    function updateNameCard(id, newValue) {
+        setContainers(containers.map(container =>
+            container.id === id ? { ...container, nameCard: newValue } : container
         ));
     };
 
-    function sendPurchasesData(){
-        console.log(entries)
-    }
+    function addEntry(containerId) {
+        setContainers(containers.map(container =>
+            container.id === containerId
+                ? { ...container, entries: [...container.entries, { id: container.entries.length + 1, name: "", person: "", value: "" }] }
+                : container
+        ));
+    };
+
+    function updateEntry(containerId, entryId, field, newValue) {
+        setContainers(containers.map(container =>
+            container.id === containerId
+                ? {
+                    ...container,
+                    entries: container.entries.map(entry =>
+                        entry.id === entryId ? { ...entry, [field]: newValue } : entry
+                    )
+                }
+                : container
+        ));
+    };
+
+    function sendPurchasesData() {
+        console.log(containers);
+    };
 
     return (
         <All>
-            <Conteiner>
-                <NameCard
-                    type="string"
-                    placeholder="Digite o nome"
-                    value={nameCard}
-                    onChange={(e) => setNameCard(e.target.value)}
-                />
-                {entries.map((entry) => (
-                    <NamePersonValue key={entry.id}>
-                        <Name
+            <ContainerAddCard>
+                {containers.map((container) => (
+                    <Conteiner key={container.id}>
+                        <NameCard
                             type="string"
                             placeholder="Digite o nome"
-                            value={entry.name}
-                            onChange={(e) => updateEntry(entry.id, "name", e.target.value)}
+                            value={container.nameCard}
+                            onChange={(e) => updateNameCard(container.id, e.target.value)}
                         />
-                        <Person as="select" value={entry.person} onChange={(e) => updateEntry(entry.id, "person", e.target.value)}>
-                            <Option disabled value="">
-                                Selecione
-                            </Option>
-                            {names.map((name) => (
-                                <Option key={name} value={name}>
-                                    {name}
-                                </Option>
-                            ))}
-                        </Person>
-                        <Value
-                            type="number"
-                            placeholder="R$"
-                            value={entry.value}
-                            onChange={(e) => updateEntry(entry.id, "value", e.target.value)}
-                        />
-                    </NamePersonValue>
-                ))}
-                <Add onClick={addEntry}>
-                    <FiPlusSquare style={{ color: "black", fontSize: 25 }} />
-                </Add>
+                        {container.entries.map((entry) => (
+                            <NamePersonValue key={entry.id}>
+                                <Name
+                                    type="string"
+                                    placeholder="Digite o nome"
+                                    value={entry.name}
+                                    onChange={(e) => updateEntry(container.id, entry.id, "name", e.target.value)}
+                                />
+                                <Person as="select" value={entry.person} onChange={(e) => updateEntry(container.id, entry.id, "person", e.target.value)}>
+                                    <Option disabled value="">
+                                        Selecione
+                                    </Option>
+                                    {names.map((name) => (
+                                        <Option key={name} value={name}>
+                                            {name}
+                                        </Option>
+                                    ))}
+                                </Person>
+                                <Value
+                                    type="number"
+                                    placeholder="R$"
+                                    value={entry.value}
+                                    onChange={(e) => updateEntry(container.id, entry.id, "value", e.target.value)}
+                                />
+                            </NamePersonValue>
+                        ))}
 
-                <AddToSend onClick={sendPurchasesData}>
-                    Enviar
-                </AddToSend>
-            </Conteiner>
+                        <Add onClick={() => addEntry(container.id)}>
+                            <FiPlusSquare style={{ color: "black", fontSize: 25 }} />
+                        </Add>
+
+                    </Conteiner>
+                ))}
+                <AddCard onClick={addContainer}>
+                    <FiPlusSquare style={{ color: "black", fontSize: 25 }} />
+                </AddCard>
+            </ContainerAddCard>
+            <AddToSend onClick={sendPurchasesData}>
+                Enviar
+            </AddToSend>
         </All>
     );
 }

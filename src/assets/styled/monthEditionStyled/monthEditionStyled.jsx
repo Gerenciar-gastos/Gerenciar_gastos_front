@@ -8,19 +8,28 @@ export const All = styled.div`
  display: flex;
  justify-content: center;
  align-items: center;
+ flex-direction: column;
+`;
+
+export const ContainerAddCard = styled.div`
+ background-color: #1bedbc;
+ width: 90vw;  
+ height: 80vh;
+ display: flex;
 `;
 
 export const Conteiner = styled.div`
  background-color: #f02816;
  color: #000000;
  width: 60vw;  
- height: 90vh; 
+ height: 80vh; 
  margin-right: 10px;
  margin-left: 10px;
  display: flex;
  justify-content: center;
  align-items: center;
  flex-direction: column;
+ 
 `;
 
 export const NameCard = styled.input`
@@ -98,18 +107,28 @@ export const Add= styled.div`
  display: flex;
  justify-content: center;
  align-items: center;
+ margin-top: 10px;
 `;
 
 export const AddToSend = styled.div`
  background-color: #71f016;
  color: #000000;
- width: 80%;  
+ width: 50%;  
  height: 10%;
  display: flex;
  justify-content: center;
  align-items: center;
  margin-top: 10px;
  border-radius: 10px;
-`
+`;
+
+export const AddCard = styled.div`
+ background-color: #71f016;
+ width: 4%;  
+ height: 5%; 
+ margin-top: 5vh;
+`;
+
+
 
 
