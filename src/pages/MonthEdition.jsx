@@ -2,12 +2,14 @@ import { useContext, useState } from "react";
 import { All, Conteiner, NameCard, NamePersonValue, Name, Person, Value, Option, Add, AddToSend, AddCard, ContainerAddCard } from "../assets/styled/monthEditionStyled/monthEditionStyled";
 import { FiPlusSquare } from "react-icons/fi";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../contexts/contex";
 
 export default function MonthEdition() {
     const { authToken} = useContext(AuthContext);
     const { id } = useParams()
+    const navigate = useNavigate();
+
     const [containers, setContainers] = useState([
         { id: 1, nameCard: "", entries: [] }
     ]);
@@ -54,7 +56,6 @@ export default function MonthEdition() {
             alert("ID do mês inválido. Por favor, selecione um mês válido.");
             return;
         }
-        console.log(parsedMonthId)
         const dataToSend = {
             monthId: parsedMonthId,
             containers: containers.map(container => ({
@@ -69,7 +70,6 @@ export default function MonthEdition() {
             }))
         };
 
-        console.log(dataToSend)
         const urlCode = `${import.meta.env.VITE_API_URL}/addexpenses`;
 
         axios.post(urlCode, dataToSend, {
@@ -78,6 +78,7 @@ export default function MonthEdition() {
             .then(response => {
                 console.log("Dados enviados com sucesso:", response.data);
                 alert("Dados enviados com sucesso!");
+                navigate(`/home`)
             })
             .catch(error => {
                 console.error("Erro ao enviar dados:", error.response.data);
