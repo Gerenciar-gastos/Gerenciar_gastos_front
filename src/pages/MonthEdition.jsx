@@ -1,12 +1,12 @@
 import { useContext, useState } from "react";
 import { All, Conteiner, NameCard, NamePersonValue, Name, Person, Value, Option, Add, AddToSend, AddCard, ContainerAddCard } from "../assets/styled/monthEditionStyled/monthEditionStyled";
 import { FiPlusSquare } from "react-icons/fi";
-import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../contexts/contex";
+import { sendPurchasesData } from "../components/MonthEdition/sendPurchasesData";
 
 export default function MonthEdition() {
-    const { authToken} = useContext(AuthContext);
+    const { authToken } = useContext(AuthContext);
     const { id } = useParams()
     const navigate = useNavigate();
 
@@ -50,42 +50,7 @@ export default function MonthEdition() {
         ));
     };
 
-    function sendPurchasesData() { 
-        const parsedMonthId = parseInt(id);
-        if (isNaN(parsedMonthId)) {
-            alert("ID do mês inválido. Por favor, selecione um mês válido.");
-            return;
-        }
-        const dataToSend = {
-            monthId: parsedMonthId,
-            containers: containers.map(container => ({
-                id: container.id,  
-                nameCard: container.nameCard, 
-                entries: container.entries.map(entry => ({
-                    id: entry.id,
-                    person: entry.person,
-                    name: entry.name,
-                    value: parseFloat(entry.value)
-                }))
-            }))
-        };
-
-        const urlCode = `${import.meta.env.VITE_API_URL}/addexpenses`;
-
-        axios.post(urlCode, dataToSend, {
-            headers: { Authorization: `Bearer ${authToken}` }
-        })
-            .then(response => {
-                console.log("Dados enviados com sucesso:", response.data);
-                alert("Dados enviados com sucesso!");
-                navigate(`/home`)
-            })
-            .catch(error => {
-                console.error("Erro ao enviar dados:", error.response.data);
-                alert("Erro ao enviar dados: " + error.message);
-            });
-    };
-
+   
     return (
         <All>
             <ContainerAddCard>
@@ -134,7 +99,7 @@ export default function MonthEdition() {
                     <FiPlusSquare style={{ color: "black", fontSize: 25 }} />
                 </AddCard>
             </ContainerAddCard>
-            <AddToSend onClick={sendPurchasesData}>
+            <AddToSend onClick={() => sendPurchasesData(id, containers, authToken, navigate)}>
                 Enviar
             </AddToSend>
         </All>
