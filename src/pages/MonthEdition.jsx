@@ -4,6 +4,7 @@ import { FiPlusSquare } from "react-icons/fi";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../contexts/contex";
 import { sendPurchasesData } from "../components/MonthEdition/sendPurchasesData";
+import { addEntry } from "../components/MonthEdition/addEntry";
 
 export default function MonthEdition() {
     const { authToken } = useContext(AuthContext);
@@ -26,14 +27,6 @@ export default function MonthEdition() {
     function updateNameCard(id, newValue) {
         setContainers(containers.map(container =>
             container.id === id ? { ...container, nameCard: newValue } : container
-        ));
-    };
-
-    function addEntry(containerId) {
-        setContainers(containers.map(container =>
-            container.id === containerId
-                ? { ...container, entries: [...container.entries, { id: container.entries.length + 1, name: "", person: "", value: "" }] }
-                : container
         ));
     };
 
@@ -89,7 +82,7 @@ export default function MonthEdition() {
                             </NamePersonValue>
                         ))}
 
-                        <Add onClick={() => addEntry(container.id)}>
+                        <Add onClick={() => addEntry(container.id, setContainers, containers)}>
                             <FiPlusSquare style={{ color: "black", fontSize: 25 }} />
                         </Add>
 
