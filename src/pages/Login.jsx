@@ -15,7 +15,7 @@ export default function Login() {
     const [cpfEmail, setCpfEmail] = useState("")
     const [password, setPassword] = useState("")
     const navigate = useNavigate(); 
-    const { setToken } = useContext(AuthContext);
+    const { setAuthToken } = useContext(AuthContext);
 
     const [showPassword, setShowPassword] = useState(false)
     useEffect(() => {
@@ -61,7 +61,7 @@ export default function Login() {
         axios.post(urlCode, data)
             .then((response) => {
                 const token = response.data[1].token;
-                setToken(token)
+                setAuthToken(token)
                 if (token) {
                     localStorage.setItem('authToken', token); 
                     navigate("/home"); 

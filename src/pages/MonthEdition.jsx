@@ -1,8 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { All, Conteiner, NameCard, NamePersonValue, Name, Person, Value, Option, Add, AddToSend, AddCard, ContainerAddCard } from "../assets/styled/monthEditionStyled/monthEditionStyled";
 import { FiPlusSquare } from "react-icons/fi";
+import axios from "axios";
+import { useParams } from "react-router-dom";
+import { AuthContext } from "../contexts/contex";
 
 export default function MonthEdition() {
+    const { authToken} = useContext(AuthContext);
+    const { id } = useParams()
     const [containers, setContainers] = useState([
         { id: 1, nameCard: "", entries: [] }
     ]);
@@ -43,8 +48,41 @@ export default function MonthEdition() {
         ));
     };
 
-    function sendPurchasesData() {
-        console.log(containers);
+    function sendPurchasesData() { 
+        const parsedMonthId = parseInt(id);
+        if (isNaN(parsedMonthId)) {
+            alert("ID do mês inválido. Por favor, selecione um mês válido.");
+            return;
+        }
+        console.log(parsedMonthId)
+        const dataToSend = {
+            monthId: parsedMonthId,
+            containers: containers.map(container => ({
+                id: container.id,  
+                nameCard: container.nameCard, 
+                entries: container.entries.map(entry => ({
+                    id: entry.id,
+                    person: entry.person,
+                    name: entry.name,
+                    value: parseFloat(entry.value)
+                }))
+            }))
+        };
+
+        console.log(dataToSend)
+        const urlCode = `${import.meta.env.VITE_API_URL}/addexpenses`;
+
+        axios.post(urlCode, dataToSend, {
+            headers: { Authorization: `Bearer ${authToken}` }
+        })
+            .then(response => {
+                console.log("Dados enviados com sucesso:", response.data);
+                alert("Dados enviados com sucesso!");
+            })
+            .catch(error => {
+                console.error("Erro ao enviar dados:", error.response.data);
+                alert("Erro ao enviar dados: " + error.message);
+            });
     };
 
     return (
@@ -80,7 +118,7 @@ export default function MonthEdition() {
                                     type="number"
                                     placeholder="R$"
                                     value={entry.value}
-                                    onChange={(e) => updateEntry(container.id, entry.id, "value", e.target.value)}
+                                    onChange={(e) => updateEntry(container.id, entry.id, "value", Number(e.target.value))}
                                 />
                             </NamePersonValue>
                         ))}
