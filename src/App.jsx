@@ -4,6 +4,7 @@ import Register from "./pages/Register.jsx";
 import Home from "./pages/Home.jsx";
 import AuthProvider from "./contexts/contex.jsx";
 import MonthEdition from "./pages/MonthEdition.jsx";
+import { Expenses } from "./pages/Expenses.jsx";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path='/register' element={<Register />} />
           <Route path='/home' element={<Home />} />
           <Route path='/monthEdition/:id' element={<MonthEdition />} />
+          <Route path='/expenses/:id' element={<Expenses />} />
 
         </Routes>
       </AuthProvider>

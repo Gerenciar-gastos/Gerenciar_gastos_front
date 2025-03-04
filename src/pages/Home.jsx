@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { All, Month, Name, Percentage, MonthAdd, InputtotalFunds, SelectMonth, Option, FaPenStyled, ToSend, AddExpenses, SeeExpenses } from "../assets/styled/homeStyled/monthStyled";
+import { All, Month, Name, Percentage, MonthAdd, InputtotalFunds, SelectMonth, Option, ToSend, AddExpenses, SeeExpenses } from "../assets/styled/homeStyled/monthStyled";
 import NavBar from "../components/Navbar";
 import { AuthContext } from "../contexts/contex";
 import registerNewMonth from "../components/home/registerNewMonth";
@@ -39,7 +39,7 @@ export default function Home() {
                     <AddExpenses onClick={() => navigate(`/monthEdition/${month.id}`)}>
                         Adicionar gastos
                     </AddExpenses>
-                    <SeeExpenses>
+                    <SeeExpenses onClick={() => navigate(`/expenses/${month.id}`)}>
                         Ver gastos
                     </SeeExpenses>
                 </Month>
