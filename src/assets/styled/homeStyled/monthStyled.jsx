@@ -15,8 +15,8 @@ export const All = styled.div`
 export const Month = styled.div`
  background-color: rgba(235, 235, 8, 0.5);
  color: #a70ee9;
- width: 20vw;  
- height: 40vh; 
+ width: 25vw;  
+ height: 50vh; 
  display: flex;
  justify-content: space-between;
  align-items: center;
@@ -57,7 +57,7 @@ export const FaPenStyled = styled(FaPen)`
 
 export const Percentage = styled.div`
  background-color: rgba(80, 235, 8, 0.865);
- width: 20vw;  
+ width: 25vw;  
  height: 30vh; 
  color: #a70ee9;
  display: flex; 
@@ -73,7 +73,7 @@ export const Percentage = styled.div`
 export const MonthAdd = styled.div`
  background-color: rgba(80, 235, 8, 0.865);
  width: 25vw;  
- height: 40vh;  
+ height: 50vh;  
  color: #a70ee9;
  display: flex; 
  justify-content: space-around;
@@ -82,6 +82,7 @@ export const MonthAdd = styled.div`
  font-size: 30px;
  border-radius: 10;
  text-align:center;
+ border-radius: 10px;
 `;
 
 export const SelectMonth = styled.select`
@@ -141,4 +142,27 @@ export const ToSend = styled.button`
  cursor: pointer;
 `;
 
+export const AddExpenses = styled.div`
+ background-color: #02f3d3;
+ width:23vw;  
+ height: 10vh;
+ text-align: center;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ border-radius: 4px;
+ border: 1px solid #f00909; 
+`;
 
+export const SeeExpenses = styled.div`
+ background-color: #02f3d3;
+ width:23vw;  
+ height: 10vh;
+ text-align: center;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ border-radius: 4px;
+ border: 1px solid #f00909;
+ margin: 5%;
+`;
