@@ -79,7 +79,6 @@ export default function MonthEdition() {
                     Cancelar
                 </AddToSend>
             </SubmitCancel>
-            
         </All>
     );
 }
