@@ -110,16 +110,24 @@ export const Add= styled.div`
  margin-top: 10px;
 `;
 
+export const SubmitCancel = styled.div`
+ background-color: #f14d0c;
+ display: flex;
+ width: 50%;  
+ height: 10%;
+`;
+
 export const AddToSend = styled.div`
  background-color: #71f016;
  color: #000000;
  width: 50%;  
- height: 10%;
+ height: 50%;
  display: flex;
  justify-content: center;
  align-items: center;
  margin-top: 10px;
  border-radius: 10px;
+ margin: 20px;
 `;
 
 export const AddCard = styled.div`

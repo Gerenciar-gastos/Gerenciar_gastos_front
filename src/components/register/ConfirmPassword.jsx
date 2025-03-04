@@ -9,7 +9,6 @@ export function ConfirmPassword({ confirmPassword, setConfirmPassword, showConfi
         setShowConfirmPassword(!showConfirmPassword);
     }
 
-
     return (
         <PassWord>
             <IconePassword>
