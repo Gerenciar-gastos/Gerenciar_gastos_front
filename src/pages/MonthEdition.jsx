@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../contexts/contex";
 import { sendPurchasesData } from "../components/MonthEdition/sendPurchasesData";
 import { addEntry } from "../components/MonthEdition/addEntry";
+import { updateEntry } from "../components/MonthEdition/updateEntry";
 
 export default function MonthEdition() {
     const { authToken } = useContext(AuthContext);
@@ -30,20 +31,6 @@ export default function MonthEdition() {
         ));
     };
 
-    function updateEntry(containerId, entryId, field, newValue) {
-        setContainers(containers.map(container =>
-            container.id === containerId
-                ? {
-                    ...container,
-                    entries: container.entries.map(entry =>
-                        entry.id === entryId ? { ...entry, [field]: newValue } : entry
-                    )
-                }
-                : container
-        ));
-    };
-
-   
     return (
         <All>
             <ContainerAddCard>
@@ -61,9 +48,9 @@ export default function MonthEdition() {
                                     type="string"
                                     placeholder="Digite o nome"
                                     value={entry.name}
-                                    onChange={(e) => updateEntry(container.id, entry.id, "name", e.target.value)}
+                                    onChange={(e) => updateEntry(container.id, entry.id, "name", e.target.value, setContainers, containers)}
                                 />
-                                <Person as="select" value={entry.person} onChange={(e) => updateEntry(container.id, entry.id, "person", e.target.value)}>
+                                <Person as="select" value={entry.person} onChange={(e) => updateEntry(container.id, entry.id, "person", e.target.value, setContainers, containers)}>
                                     <Option disabled value="">
                                         Selecione
                                     </Option>
@@ -77,7 +64,7 @@ export default function MonthEdition() {
                                     type="number"
                                     placeholder="R$"
                                     value={entry.value}
-                                    onChange={(e) => updateEntry(container.id, entry.id, "value", Number(e.target.value))}
+                                    onChange={(e) => updateEntry(container.id, entry.id, "value", Number(e.target.value), setContainers, containers)}
                                 />
                             </NamePersonValue>
                         ))}
