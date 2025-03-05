@@ -20,7 +20,7 @@ function App() {
           <Route path='/home' element={<Home />} />
           <Route path='/monthEdition/:id' element={<MonthEdition />} />
           <Route path='/expenses/:id' element={<Expenses />} />
-          <Route path='/editCard/:id' element={<EditCard />} />
+          <Route path='/editCard/:monthId/:id' element={<EditCard />} />
 
         </Routes>
       </AuthProvider>

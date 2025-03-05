@@ -28,7 +28,7 @@ export function Expenses() {
                 <Container key = {card.id}>
                     <NameCard >
                         <p>{card.name}</p>
-                        <MdEdit onClick={() => navigate(`/editCard/${card.id}`)} />
+                        <MdEdit onClick={() => navigate(`/editCard/${id}/${card.id}`)} />
                     </NameCard>
                         {card.expense.map((expense) => (
                             <EstablishmentValuePerson key={expense.id}>
