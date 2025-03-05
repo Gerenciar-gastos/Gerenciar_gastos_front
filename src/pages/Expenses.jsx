@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../contexts/contex";
 import { useNavigate, useParams } from "react-router-dom";
-import { All, Container, Container1, Establishment, EstablishmentValuePerson, NameCard, Person, ToGoBack, Value } from "../assets/styled/expensesStyled/expensesStyled";
+import { All, Container, Container1, Establishment, EstablishmentValuePerson, NameCard, Person, ToGoBack, Total, Value } from "../assets/styled/expensesStyled/expensesStyled";
 import { CgArrowLeftO } from "react-icons/cg";
 
 export function Expenses() {
@@ -12,9 +12,9 @@ export function Expenses() {
     const monthId = parseInt(id, 10);
 
     const month = data.Month.find(month => month.id === monthId);
-
-    if (!month) {
-        return <div>Mês não encontrado</div>;
+    
+    function calculateTotalExpenses(expenses) {
+        return expenses.reduce((total, expense) => total + expense.value, 0);
     };
 
     return (
@@ -36,6 +36,9 @@ export function Expenses() {
                                 <Person>{expense.person}</Person>
                             </EstablishmentValuePerson>
                         ))}
+                        <Total>
+                        Total: R$ {calculateTotalExpenses(card.expense)}
+                        </Total>
                 </Container>
             ))}
             </Container1>

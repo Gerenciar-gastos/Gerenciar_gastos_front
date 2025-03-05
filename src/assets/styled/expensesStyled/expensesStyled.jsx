@@ -81,3 +81,14 @@ export const Person = styled.div`
  justify-content: center;
  align-items: center;  
 `;
+
+export const Total = styled.div`
+ width: 300px;
+ height: 25px; 
+ background-color: #0b88f5;
+ color: black;
+ display: flex;
+ justify-content: flex-end;
+ align-items: center;
+ padding-right: 20px;
+`;
