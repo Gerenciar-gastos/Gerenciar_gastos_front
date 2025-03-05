@@ -45,6 +45,10 @@ export const NameCard = styled.div`
  p{
     font-size: 20px;
  }
+ svg{
+    font-size: 20px;
+    margin-left: 20px;
+ }
 `;
 
 export const EstablishmentValuePerson = styled.div`

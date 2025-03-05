@@ -3,6 +3,7 @@ import { AuthContext } from "../contexts/contex";
 import { useNavigate, useParams } from "react-router-dom";
 import { All, Container, Container1, Establishment, EstablishmentValuePerson, NameCard, Person, ToGoBack, Total, Value } from "../assets/styled/expensesStyled/expensesStyled";
 import { CgArrowLeftO } from "react-icons/cg";
+import { MdEdit } from "react-icons/md";
 
 export function Expenses() {
     const { data } = useContext(AuthContext);
@@ -25,10 +26,10 @@ export function Expenses() {
             <Container1>
             {month.card.map((card) => (
                 <Container key = {card.id}>
-                    <NameCard>
+                    <NameCard >
                         <p>{card.name}</p>
+                        <MdEdit onClick={() => navigate(`/editCard/${card.id}`)} />
                     </NameCard>
-                    
                         {card.expense.map((expense) => (
                             <EstablishmentValuePerson key={expense.id}>
                                 <Establishment>{expense.name}</Establishment>
@@ -42,7 +43,6 @@ export function Expenses() {
                 </Container>
             ))}
             </Container1>
-
         </All>
     )
 }
