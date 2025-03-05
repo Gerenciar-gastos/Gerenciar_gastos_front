@@ -1,12 +1,13 @@
 import { useContext } from "react";
 import { AuthContext } from "../contexts/contex";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { All, Container, Container1, Establishment, EstablishmentValuePerson, NameCard, Person, ToGoBack, Value } from "../assets/styled/expensesStyled/expensesStyled";
 import { CgArrowLeftO } from "react-icons/cg";
 
 export function Expenses() {
     const { data } = useContext(AuthContext);
     const { id } = useParams();
+    const navigate = useNavigate();
 
     const monthId = parseInt(id, 10);
 
@@ -18,7 +19,7 @@ export function Expenses() {
 
     return (
         <All>
-            <ToGoBack>
+            <ToGoBack onClick={() => navigate(`/home`)} >
                 <CgArrowLeftO />
             </ToGoBack>
             <Container1>
