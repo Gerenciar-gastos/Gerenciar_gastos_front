@@ -5,9 +5,26 @@ export const All = styled.div`
  color: aliceblue;
  width: 100vw;  
  min-height: 100vh;
+ display: flex;
+ flex-direction: column;
+`;
+
+export const ToGoBack = styled.div`
+ background-color: #eb0808;
+ width: 50px;
+ height: 50px;
+ margin: 20px;
+ svg{
+    font-size: 50px;
+    }
+`;
+
+export const Container1 = styled.div`
  display: grid;
+ width: 100vw;  
+ min-height: 100vh;
+ background-color: blue;
  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
- gap: 50px;
 `;
 
 export const Container = styled.div`

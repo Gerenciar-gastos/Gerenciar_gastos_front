@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import { AuthContext } from "../contexts/contex";
 import { useParams } from "react-router-dom";
-import { All, Container, Establishment, EstablishmentValuePerson, NameCard, Person, Value } from "../assets/styled/expensesStyled/expensesStyled";
+import { All, Container, Container1, Establishment, EstablishmentValuePerson, NameCard, Person, ToGoBack, Value } from "../assets/styled/expensesStyled/expensesStyled";
+import { CgArrowLeftO } from "react-icons/cg";
 
 export function Expenses() {
     const { data } = useContext(AuthContext);
@@ -14,9 +15,13 @@ export function Expenses() {
     if (!month) {
         return <div>Mês não encontrado</div>;
     };
-    
+
     return (
         <All>
+            <ToGoBack>
+                <CgArrowLeftO />
+            </ToGoBack>
+            <Container1>
             {month.card.map((card) => (
                 <Container key = {card.id}>
                     <NameCard>
@@ -32,7 +37,7 @@ export function Expenses() {
                         ))}
                 </Container>
             ))}
-
+            </Container1>
 
         </All>
     )
