@@ -29,11 +29,32 @@ export const ToGoBack = styled.div`
 `;
 
 export const NameCard = styled.div`
-    
+ background-color: blue;
+ width: 90vw;
+ height: 50px;
+ display: flex;
+ justify-content: space-around;
+ align-items: center;
+`;
+
+export const DeleteToUpdate = styled.div`
+ display: flex;
+ background-color: #3cff00;
+ width: 45vw;
+ height: 50px;
+ display: flex;
+ justify-content: flex-start;
+ align-items: center;
 `;
 
 export const Name = styled.div`
-    
+ font-size: 25px;
+ background-color: #3cff00;
+ width: 45vw;
+ height: 50px;
+ display: flex;
+ justify-content: flex-end;
+ align-items: center;
 `;
 
 export const EstablishmentNameValuePersonDeleteToUpdate = styled.div`
@@ -53,11 +74,17 @@ export const Person = styled.div`
 `;
 
 export const Delete = styled.div`
-    
+ svg{
+    font-size: 25px;
+    margin-right: 40px;
+    margin-left: 40px;
+ }  
 `;
 
 export const ToUpdate = styled.div`
-    
+ svg{
+    font-size: 25px;
+ }     
 `;
 
 

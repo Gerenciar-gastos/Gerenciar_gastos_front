@@ -1,8 +1,11 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { All, Container, Delete, EstablishmentName, EstablishmentNameValuePersonDeleteToUpdate, Name, NameCard, Person, ToGoBack, ToUpdate, Value } from "../assets/styled/editCardSryled/editCardSryled";
+import { All, Container, Delete, EstablishmentName, EstablishmentNameValuePersonDeleteToUpdate, Name, NameCard, Person, ToGoBack, ToUpdate, Value, DeleteToUpdate } from "../assets/styled/editCardSryled/editCardSryled";
 import { AuthContext } from "../contexts/contex";
 import { useContext } from "react";
 import { CgArrowLeftO } from "react-icons/cg";
+import { MdModeEdit } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
+
 
 export function EditCard() {
     const { id, monthId } = useParams();
@@ -22,9 +25,16 @@ export function EditCard() {
             </ToGoBack>
             <Container>
                 <NameCard>
-                    <Name></Name>
-                    <Delete></Delete>
-                    <ToUpdate></ToUpdate>
+                    <Name>{card.name}</Name>
+                    <DeleteToUpdate>
+                        <Delete>
+                            <MdDelete />
+                        </Delete>
+                        <ToUpdate>
+                            <MdModeEdit />
+                        </ToUpdate>
+                    </DeleteToUpdate>
+                    
                 </NameCard>
                 <EstablishmentNameValuePersonDeleteToUpdate>
                     <EstablishmentName></EstablishmentName>
