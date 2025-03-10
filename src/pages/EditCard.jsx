@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { All, Container, Delete, EstablishmentName, EstablishmentNameValuePersonDeleteToUpdate, Name, NameCard, Person, ToGoBack, ToUpdate, Value, DeleteToUpdate } from "../assets/styled/editCardSryled/editCardSryled";
 import { AuthContext } from "../contexts/contex";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CgArrowLeftO } from "react-icons/cg";
 import { MdModeEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
@@ -16,6 +16,7 @@ export function EditCard() {
 
     const month = data.Month.find(month => month.id === monthIdParams);
     const card = month.card.find(card => card.id === idParamns);
+    const [nameCard, setNameCard] = useState(card.name)
 
     console.log(card)
     return (
@@ -25,7 +26,11 @@ export function EditCard() {
             </ToGoBack>
             <Container>
                 <NameCard>
-                    <Name>{card.name}</Name>
+                    <Name type="text"
+                        placeholder={card.name}
+                        value={nameCard}
+                        onChange={(e) => setNameCard(e.target.value)}
+                    />
                     <DeleteToUpdate>
                         <Delete>
                             <MdDelete />
@@ -36,13 +41,26 @@ export function EditCard() {
                     </DeleteToUpdate>
                     
                 </NameCard>
-                <EstablishmentNameValuePersonDeleteToUpdate>
-                    <EstablishmentName></EstablishmentName>
-                    <Value></Value>
-                    <Person></Person>
-                    <Delete></Delete>
-                    <ToUpdate></ToUpdate>
-                </EstablishmentNameValuePersonDeleteToUpdate>
+                {card.expense.map((expense) =>(
+                    <EstablishmentNameValuePersonDeleteToUpdate key={expense.id}>
+                        <EstablishmentName>
+                            {expense.name}
+                        </EstablishmentName>
+                        <Value>
+                            {expense.value}
+                        </Value>
+                        <Person>
+                            {expense.person}
+                        </Person>
+                        <Delete>
+                            <MdDelete />
+                        </Delete>
+                        <ToUpdate>
+                            <MdModeEdit />
+                        </ToUpdate>
+                    </EstablishmentNameValuePersonDeleteToUpdate>
+                ))}
+                
             </Container>
         </All>
     )

@@ -47,7 +47,7 @@ export const DeleteToUpdate = styled.div`
  align-items: center;
 `;
 
-export const Name = styled.div`
+export const Name = styled.input`
  font-size: 25px;
  background-color: #3cff00;
  width: 45vw;
@@ -55,22 +55,34 @@ export const Name = styled.div`
  display: flex;
  justify-content: flex-end;
  align-items: center;
+ border: none;
+ padding: 20px;
 `;
 
 export const EstablishmentNameValuePersonDeleteToUpdate = styled.div`
-    
+ background-color: #1100ff;
+ width: 90vw;
+ height: 50px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
 `;
 
 export const EstablishmentName = styled.div`
-    
+ background-color: #ff008c; 
+ font-size: 25px ;
 `;
 
 export const Value = styled.div`
-    
+ background-color: #00d9ff; 
+ font-size: 25px ;
+ margin-left: 20px ;
 `;
 
 export const Person = styled.div`
-    
+ background-color: #ff9100; 
+ font-size: 25px ; 
+ margin-left: 20px ;  
 `;
 
 export const Delete = styled.div`
