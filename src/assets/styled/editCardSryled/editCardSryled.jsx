@@ -78,11 +78,9 @@ export const EstablishmentName = styled.input`
  justify-content: center;
  align-items: center;
  border: none;
- padding: 0 10px; /* Adicione padding para melhorar a aparência */
- outline: none; /* Remove a borda ao focar */
-
-  /* Garanta que o input seja clicável */
-  pointer-events: auto;
+ padding: 0 10px; 
+ outline: none; 
+ pointer-events: auto;
 `;
 
 export const Value = styled.input`
@@ -96,7 +94,7 @@ export const Value = styled.input`
  align-items: center;
 `;
 
-export const Person = styled.div`
+export const Person = styled.select`
  background-color: #ff9100; 
  font-size: 25px ; 
  margin-left: 10px ; 
@@ -105,6 +103,10 @@ export const Person = styled.div`
  display: flex;
  justify-content: center;
  align-items: center; 
+ border: none;
+ padding: 0 10px; 
+ outline: none; 
+ pointer-events: auto;
 `;
 
 export const Delete = styled.div`

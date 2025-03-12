@@ -1,10 +1,10 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { All, Container, Delete, EstablishmentName, EstablishmentNameValuePersonDeleteToUpdate, Name, NameCard, Person, ToGoBack, ToUpdate, Value, DeleteToUpdate } from "../assets/styled/editCardSryled/editCardSryled";
+import { All, Container, Delete, EstablishmentName, EstablishmentNameValuePersonDeleteToUpdate, Name, NameCard, Person, ToGoBack, Value, DeleteToUpdate } from "../assets/styled/editCardSryled/editCardSryled";
 import { AuthContext } from "../contexts/contex";
 import { useContext, useState } from "react";
 import { CgArrowLeftO } from "react-icons/cg";
-import { MdModeEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
+import { Option } from "../assets/styled/monthEditionStyled/monthEditionStyled";
 
 
 export function EditCard() {
@@ -26,6 +26,11 @@ export function EditCard() {
         setExpenses(updatedExpenses);
     };
 
+    const names = [
+        "Monique", "Lauro", "Sheure", "Senira", "Patrick", "Gerson",
+        "Juliele", "Lucimar"
+    ];
+
     function expenseValueChange(id, newValue) {
         const updatedExpenses = expenses.map(expense =>
             expense.id === id ? { ...expense, value: newValue } : expense
@@ -33,6 +38,12 @@ export function EditCard() {
         setExpenses(updatedExpenses);
     };
 
+    function expensePersonChange(id, newPerson) {
+        const updatedExpenses = expenses.map(expense =>
+            expense.id === id ? { ...expense, person: newPerson } : expense
+        );
+        setExpenses(updatedExpenses);
+    };
     console.log(expenses)
     return (
         <All>
@@ -65,9 +76,21 @@ export function EditCard() {
                             placeholder={expense.value}
                             onChange={(e) => expenseValueChange(expense.id, e.target.value)}
                         />
-                        <Person>
-                            {expense.person}
+                        <Person
+                            as="select"
+                            value={expense.person}
+                            onChange={(e) => expensePersonChange(expense.id, e.target.value)}
+                        >
+                            <Option disabled value="">
+                                {expense.person}
+                            </Option>
+                            {names.map((name) => (
+                                <Option key={name} value={name}>
+                                    {name}
+                                </Option>
+                            ))}
                         </Person>
+
                         <Delete>
                             <MdDelete />
                         </Delete>
