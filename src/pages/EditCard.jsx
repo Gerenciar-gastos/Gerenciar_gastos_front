@@ -19,9 +19,16 @@ export function EditCard() {
     const [nameCard, setNameCard] = useState(card.name)
     const [expenses, setExpenses] = useState(card.expense);
 
-    function changeOfExpenseName(id, newName)  {
+    function changeOfExpenseName(id, newName) {
         const updatedExpenses = expenses.map(expense =>
             expense.id === id ? { ...expense, name: newName } : expense
+        );
+        setExpenses(updatedExpenses);
+    };
+
+    function expenseValueChange(id, newValue) {
+        const updatedExpenses = expenses.map(expense =>
+            expense.id === id ? { ...expense, value: newValue } : expense
         );
         setExpenses(updatedExpenses);
     };
@@ -44,30 +51,26 @@ export function EditCard() {
                         <Delete>
                             <MdDelete />
                         </Delete>
-                        <ToUpdate>
-                            <MdModeEdit />
-                        </ToUpdate>
                     </DeleteToUpdate>
                 </NameCard>
-                {card.expense.map((expense) => (
+                {expenses.map((expense) => (
                     <EstablishmentNameValuePersonDeleteToUpdate key={expense.id}>
                         <EstablishmentName
                             type="text"
                             placeholder={expense.name}
                             onChange={(e) => changeOfExpenseName(expense.id, e.target.value)}
                         />
-                        <Value>
-                            {expense.value}
-                        </Value>
+                        <Value
+                            type="number"
+                            placeholder={expense.value}
+                            onChange={(e) => expenseValueChange(expense.id, e.target.value)}
+                        />
                         <Person>
                             {expense.person}
                         </Person>
                         <Delete>
                             <MdDelete />
                         </Delete>
-                        <ToUpdate>
-                            <MdModeEdit />
-                        </ToUpdate>
                     </EstablishmentNameValuePersonDeleteToUpdate>
                 ))}
 

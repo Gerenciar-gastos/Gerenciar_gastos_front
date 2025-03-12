@@ -85,12 +85,12 @@ export const EstablishmentName = styled.input`
   pointer-events: auto;
 `;
 
-export const Value = styled.div`
+export const Value = styled.input`
  background-color: #00d9ff; 
  font-size: 25px ;
- margin-left: 20px ;
+ margin-left: 10px ;
  height: 50px;
- width: 10vw;
+ width: 15vw;
  display: flex;
  justify-content: center;
  align-items: center;
@@ -99,7 +99,7 @@ export const Value = styled.div`
 export const Person = styled.div`
  background-color: #ff9100; 
  font-size: 25px ; 
- margin-left: 20px ; 
+ margin-left: 10px ; 
  height: 50px;
  width: 15vw;
  display: flex;
