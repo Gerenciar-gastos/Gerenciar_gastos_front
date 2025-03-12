@@ -17,8 +17,16 @@ export function EditCard() {
     const month = data.Month.find(month => month.id === monthIdParams);
     const card = month.card.find(card => card.id === idParamns);
     const [nameCard, setNameCard] = useState(card.name)
+    const [expenses, setExpenses] = useState(card.expense);
 
-    console.log(card)
+    function changeOfExpenseName(id, newName)  {
+        const updatedExpenses = expenses.map(expense =>
+            expense.id === id ? { ...expense, name: newName } : expense
+        );
+        setExpenses(updatedExpenses);
+    };
+
+    console.log(expenses)
     return (
         <All>
             <ToGoBack onClick={() => navigate(`/home`)} >
@@ -26,7 +34,8 @@ export function EditCard() {
             </ToGoBack>
             <Container>
                 <NameCard>
-                    <Name type="text"
+                    <Name
+                        type="text"
                         placeholder={card.name}
                         value={nameCard}
                         onChange={(e) => setNameCard(e.target.value)}
@@ -39,13 +48,14 @@ export function EditCard() {
                             <MdModeEdit />
                         </ToUpdate>
                     </DeleteToUpdate>
-                    
                 </NameCard>
-                {card.expense.map((expense) =>(
+                {card.expense.map((expense) => (
                     <EstablishmentNameValuePersonDeleteToUpdate key={expense.id}>
-                        <EstablishmentName>
-                            {expense.name}
-                        </EstablishmentName>
+                        <EstablishmentName
+                            type="text"
+                            placeholder={expense.name}
+                            onChange={(e) => changeOfExpenseName(expense.id, e.target.value)}
+                        />
                         <Value>
                             {expense.value}
                         </Value>
@@ -60,7 +70,7 @@ export function EditCard() {
                         </ToUpdate>
                     </EstablishmentNameValuePersonDeleteToUpdate>
                 ))}
-                
+
             </Container>
         </All>
     )
