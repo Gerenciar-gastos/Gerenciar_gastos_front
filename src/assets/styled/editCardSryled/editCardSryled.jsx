@@ -123,4 +123,13 @@ export const ToUpdate = styled.div`
  }     
 `;
 
+export const SubmitCancel = styled.div`
+ display:flex ;
+`;
+
+export const AddToSend = styled.div`
+ height: 50px;
+ width: 15vw;
+
+`;
 

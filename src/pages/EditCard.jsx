@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { All, Container, Delete, EstablishmentName, EstablishmentNameValuePersonDeleteToUpdate, Name, NameCard, Person, ToGoBack, Value, DeleteToUpdate } from "../assets/styled/editCardSryled/editCardSryled";
+import { All, Container, Delete, EstablishmentName, EstablishmentNameValuePersonDeleteToUpdate, Name, NameCard, Person, ToGoBack, Value, DeleteToUpdate, SubmitCancel, AddToSend } from "../assets/styled/editCardSryled/editCardSryled";
 import { AuthContext } from "../contexts/contex";
 import { useContext, useState } from "react";
 import { CgArrowLeftO } from "react-icons/cg";
@@ -71,14 +71,20 @@ export function EditCard() {
                                 </Option>
                             ))}
                         </Person>
-
                         <Delete>
                             <MdDelete />
                         </Delete>
                     </EstablishmentNameValuePersonDeleteToUpdate>
                 ))}
-
             </Container>
+            <SubmitCancel>
+                <AddToSend onClick={() => navigate("/home")}>
+                    Enviar
+                </AddToSend>
+                <AddToSend onClick={() => navigate("/home")}>
+                    Cancelar
+                </AddToSend>
+            </SubmitCancel>
         </All>
     )
 }
