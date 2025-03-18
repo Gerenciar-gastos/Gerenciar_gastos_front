@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { All, Container, Delete, EstablishmentName, EstablishmentNameValuePersonDeleteToUpdate, Name, NameCard, Person, ToGoBack, Value, DeleteToUpdate, SubmitCancel, AddToSendSubmit, AddToSendCancel } from "../assets/styled/editCardSryled/editCardSryled";
+import { All, Container, Delete, EstablishmentName, EstablishmentNameValuePersonDeleteToUpdate, Person, ToGoBack, Value, SubmitCancel, AddToSendSubmit, AddToSendCancel } from "../assets/styled/editCardSryled/editCardSryled";
 import { AuthContext } from "../contexts/contex";
 import { useContext, useState } from "react";
 import { CgArrowLeftO } from "react-icons/cg";
@@ -8,6 +8,8 @@ import { Option } from "../assets/styled/monthEditionStyled/monthEditionStyled";
 import { changeOfExpenseName } from "../components/editCard/changeOfExpenseName";
 import { expenseValueChange } from "../components/editCard/expenseValueChange";
 import { expensePersonChange } from "../components/editCard/expensePersonChange";
+import { NameCardcomponents } from "../components/editCard/nameCard";
+import NavBar from "../components/Navbar";
 
 
 export function EditCard() {
@@ -28,23 +30,12 @@ export function EditCard() {
 
     return (
         <All>
+            <NavBar />
             <ToGoBack onClick={() => navigate(`/expenses/${monthId}`)} >
                 <CgArrowLeftO />
             </ToGoBack>
             <Container>
-                <NameCard>
-                    <Name
-                        type="text"
-                        placeholder={card.name}
-                        value={nameCard}
-                        onChange={(e) => setNameCard(e.target.value)}
-                    />
-                    <DeleteToUpdate>
-                        <Delete>
-                            <MdDelete />
-                        </Delete>
-                    </DeleteToUpdate>
-                </NameCard>
+                <NameCardcomponents nameCard={nameCard} setNameCard={setNameCard} card={card.name} />
                 {expenses.map((expense) => (
                     <EstablishmentNameValuePersonDeleteToUpdate key={expense.id}>
                         <EstablishmentName

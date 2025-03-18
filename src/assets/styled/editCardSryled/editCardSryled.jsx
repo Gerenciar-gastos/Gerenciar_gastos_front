@@ -23,6 +23,7 @@ export const ToGoBack = styled.div`
  width: 90vw;
  height: 50px;
  margin: 20px;
+ margin-top: 70px;
  svg{
     font-size: 50px;
     }
