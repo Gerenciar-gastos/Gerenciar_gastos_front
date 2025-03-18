@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { All, Container, Delete, EstablishmentName, EstablishmentNameValuePersonDeleteToUpdate, Name, NameCard, Person, ToGoBack, Value, DeleteToUpdate, SubmitCancel, AddToSend } from "../assets/styled/editCardSryled/editCardSryled";
+import { All, Container, Delete, EstablishmentName, EstablishmentNameValuePersonDeleteToUpdate, Name, NameCard, Person, ToGoBack, Value, DeleteToUpdate, SubmitCancel, AddToSendSubmit, AddToSendCancel } from "../assets/styled/editCardSryled/editCardSryled";
 import { AuthContext } from "../contexts/contex";
 import { useContext, useState } from "react";
 import { CgArrowLeftO } from "react-icons/cg";
@@ -28,7 +28,7 @@ export function EditCard() {
 
     return (
         <All>
-            <ToGoBack onClick={() => navigate(`/home`)} >
+            <ToGoBack onClick={() => navigate(`/expenses/${monthId}`)} >
                 <CgArrowLeftO />
             </ToGoBack>
             <Container>
@@ -78,12 +78,12 @@ export function EditCard() {
                 ))}
             </Container>
             <SubmitCancel>
-                <AddToSend onClick={() => navigate("/home")}>
+                <AddToSendSubmit onClick={() => navigate("/home")}>
                     Enviar
-                </AddToSend>
-                <AddToSend onClick={() => navigate("/home")}>
+                </AddToSendSubmit>
+                <AddToSendCancel onClick={() => navigate(`/expenses/${monthId}`)}>
                     Cancelar
-                </AddToSend>
+                </AddToSendCancel>
             </SubmitCancel>
         </All>
     )

@@ -7,14 +7,14 @@ export const All = styled.div`
  width: 100vw;  
  min-height: 100vh;
  display: flex;
- justify-content: center;
+ justify-content: flex-start;
  align-items: center;
  flex-direction: column;
 `;
 
 export const Container = styled.div`
  width: 90vw;  
- height: 90vh;
+ height: 100%;
  background-color: red;
 `;
 
@@ -92,6 +92,7 @@ export const Value = styled.input`
  display: flex;
  justify-content: center;
  align-items: center;
+ border: none;
 `;
 
 export const Person = styled.select`
@@ -125,11 +126,30 @@ export const ToUpdate = styled.div`
 
 export const SubmitCancel = styled.div`
  display:flex ;
+ margin-top: 10px;
 `;
 
-export const AddToSend = styled.div`
+export const AddToSendSubmit = styled.div`
  height: 50px;
  width: 15vw;
+ background-color: #4af506;
+ margin-left: 10px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ border-radius: 10px;
+ font-size: 20px;
+`;
 
+export const AddToSendCancel = styled.div`
+ height: 50px;
+ width: 15vw;
+ background-color: #f50606;
+ margin-left: 10px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ border-radius: 10px;
+ font-size: 20px;
 `;
 
