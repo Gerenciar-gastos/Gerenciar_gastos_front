@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { All, Container, Container1, Establishment, EstablishmentValuePerson, NameCard, Person, ToGoBack, Total, Value } from "../assets/styled/expensesStyled/expensesStyled";
 import { CgArrowLeftO } from "react-icons/cg";
 import { MdEdit } from "react-icons/md";
+import NavBar from "../components/Navbar";
 
 export function Expenses() {
     const { data } = useContext(AuthContext);
@@ -20,6 +21,7 @@ export function Expenses() {
 
     return (
         <All>
+            <NavBar />
             <ToGoBack onClick={() => navigate(`/home`)} >
                 <CgArrowLeftO />
             </ToGoBack>
