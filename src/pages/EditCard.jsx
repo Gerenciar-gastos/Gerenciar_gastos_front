@@ -10,11 +10,12 @@ import { expenseValueChange } from "../components/editCard/expenseValueChange";
 import { expensePersonChange } from "../components/editCard/expensePersonChange";
 import { NameCardcomponents } from "../components/editCard/nameCard";
 import NavBar from "../components/Navbar";
+import deleteExpenses from "../components/editCard/deleteExpenses";
 
 
 export function EditCard() {
     const { id, monthId } = useParams();
-    const { data } = useContext(AuthContext);
+    const { data, authToken } = useContext(AuthContext);
     const monthIdParams = parseInt(monthId, 10);
     const idParamns = parseInt(id, 10)
     const navigate = useNavigate();
@@ -45,7 +46,7 @@ export function EditCard() {
                         />
                         <Value
                             type="number"
-                            placeholder={expense.value}
+                            placeholder={`R$ ${expense.value}`}
                             onChange={(e) => expenseValueChange(expense.id, e.target.value, expenses, setExpenses)}
                         />
                         <Person
@@ -63,7 +64,7 @@ export function EditCard() {
                             ))}
                         </Person>
                         <Delete>
-                            <MdDelete />
+                            <MdDelete onClick={() => deleteExpenses(authToken, expense.id)}/>
                         </Delete>
                     </EstablishmentNameValuePersonDeleteToUpdate>
                 ))}
