@@ -15,7 +15,7 @@ import deleteExpenses from "../components/editCard/deleteExpenses";
 
 export function EditCard() {
     const { id, monthId } = useParams();
-    const { data, authToken } = useContext(AuthContext);
+    const { data, authToken, setData } = useContext(AuthContext);
     const monthIdParams = parseInt(monthId, 10);
     const idParamns = parseInt(id, 10)
     const navigate = useNavigate();
@@ -64,7 +64,7 @@ export function EditCard() {
                             ))}
                         </Person>
                         <Delete>
-                            <MdDelete onClick={() => deleteExpenses(authToken, expense.id)}/>
+                            <MdDelete onClick={() => deleteExpenses(authToken, expense.id, setData)}/>
                         </Delete>
                     </EstablishmentNameValuePersonDeleteToUpdate>
                 ))}

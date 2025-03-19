@@ -17,7 +17,7 @@ export function sendPurchasesData(id, containers, authToken, navigate) {
         }))
     };
 
-    const urlCode = `${import.meta.env.VITE_API_URL}/addexpenses`;
+    const urlCode = `${import.meta.env.VITE_API_URL}/expenses`;
 
     axios.post(urlCode, dataToSend, {
         headers: { Authorization: `Bearer ${authToken}` }
