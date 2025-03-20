@@ -24,7 +24,7 @@ export function EditCard() {
     const card = month.card.find(card => card.id === idParamns);
     const [nameCard, setNameCard] = useState(card.name)
     const [expenses, setExpenses] = useState(card.expense);
-
+console.log(card)
     const names = [
         "Monique", "Lauro", "Sheure", "Senira", "Patrick", "Gerson",
         "Juliele", "Lucimar"
@@ -47,7 +47,7 @@ export function EditCard() {
                 <CgArrowLeftO />
             </ToGoBack>
             <Container>
-                <NameCardcomponents nameCard={nameCard} setNameCard={setNameCard} card={card.name} />
+                <NameCardcomponents nameCard={nameCard} setNameCard={setNameCard} card={card.name} id={card.id} authToken={authToken} setData={setData}/>
                 {expenses.map((expense) => (
                     <EstablishmentNameValuePersonDeleteToUpdate key={expense.id}>
                         <EstablishmentName
