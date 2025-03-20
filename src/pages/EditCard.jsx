@@ -75,7 +75,7 @@ export function EditCard() {
                             ))}
                         </Person>
                         <Delete>
-                            <MdDelete onClick={() => deleteExpenses(authToken, expense.id, setData)}/>
+                            <MdDelete onClick={() => deleteExpenses(authToken, expense.id, setData, expenses, setExpenses)} />
                         </Delete>
                     </EstablishmentNameValuePersonDeleteToUpdate>
                 ))}
