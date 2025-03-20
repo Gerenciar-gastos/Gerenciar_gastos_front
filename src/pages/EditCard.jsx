@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { All, Container, Delete, EstablishmentName, EstablishmentNameValuePersonDeleteToUpdate, Person, ToGoBack, Value, SubmitCancel, AddToSendSubmit, AddToSendCancel } from "../assets/styled/editCardSryled/editCardSryled";
+import { All, Container, Delete, EstablishmentName, EstablishmentNameValuePersonDeleteToUpdate, Person, ToGoBack, Value, SubmitCancel, AddToSendSubmit, AddToSendCancel, Add } from "../assets/styled/editCardSryled/editCardSryled";
 import { AuthContext } from "../contexts/contex";
 import { useContext, useState } from "react";
 import { CgArrowLeftO } from "react-icons/cg";
@@ -11,6 +11,7 @@ import { expensePersonChange } from "../components/editCard/expensePersonChange"
 import { NameCardcomponents } from "../components/editCard/nameCard";
 import NavBar from "../components/Navbar";
 import deleteExpenses from "../components/editCard/deleteExpenses";
+import { FiPlusSquare } from "react-icons/fi";
 
 
 export function EditCard() {
@@ -28,6 +29,16 @@ export function EditCard() {
         "Monique", "Lauro", "Sheure", "Senira", "Patrick", "Gerson",
         "Juliele", "Lucimar"
     ];
+    
+    function addContainer() {
+        const newExpense = {
+            id: expenses.length + 1, 
+            name: "",
+            value: 0,
+            person: ""
+        };
+        setExpenses([...expenses, newExpense]);
+    };
 
     return (
         <All>
@@ -68,6 +79,9 @@ export function EditCard() {
                         </Delete>
                     </EstablishmentNameValuePersonDeleteToUpdate>
                 ))}
+                <Add onClick={addContainer}>
+                    <FiPlusSquare style={{ color: "black", fontSize: 25 }} />
+                </Add>
             </Container>
             <SubmitCancel>
                 <AddToSendSubmit onClick={() => navigate("/home")}>

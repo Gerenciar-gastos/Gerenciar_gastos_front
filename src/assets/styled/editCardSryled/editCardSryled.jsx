@@ -154,3 +154,13 @@ export const AddToSendCancel = styled.div`
  font-size: 20px;
 `;
 
+export const Add = styled.div`
+ background-color: #8316f0;
+ color: #000000;
+ width: 100%;  
+ height: 10%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ margin-top: 10px;
+`;
