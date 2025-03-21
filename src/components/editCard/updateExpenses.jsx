@@ -15,14 +15,13 @@ export default function updateExpenses(authToken, id, setData, expenses, nameCar
     function comparingCardName() {
         return nameCard !== card.name;
     }
-
-    console.log("despesas alteradas", changedExpenses);
-
+    console.log(card)
     const isCardNameChanged = comparingCardName();
 
     const dataToUpdate = {
         expenses: changedExpenses,
-        newCardName: isCardNameChanged ? nameCard : null
+        newCardName: isCardNameChanged ? nameCard : null,
+        cardId: card.id
     };
     console.log(dataToUpdate)
 
