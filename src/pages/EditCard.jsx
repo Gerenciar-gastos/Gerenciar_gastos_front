@@ -12,6 +12,7 @@ import { NameCardcomponents } from "../components/editCard/nameCard";
 import NavBar from "../components/Navbar";
 import deleteExpenses from "../components/editCard/deleteExpenses";
 import { FiPlusSquare } from "react-icons/fi";
+import updateExpenses from "../components/editCard/updateExpenses";
 
 
 export function EditCard() {
@@ -24,12 +25,11 @@ export function EditCard() {
     const card = month.card.find(card => card.id === idParamns);
     const [nameCard, setNameCard] = useState(card.name)
     const [expenses, setExpenses] = useState(card.expense);
-console.log(card)
     const names = [
         "Monique", "Lauro", "Sheure", "Senira", "Patrick", "Gerson",
         "Juliele", "Lucimar"
     ];
-    
+   
     function addContainer() {
         const newExpense = {
             id: expenses.length + 1, 
@@ -47,7 +47,7 @@ console.log(card)
                 <CgArrowLeftO />
             </ToGoBack>
             <Container>
-                <NameCardcomponents nameCard={nameCard} setNameCard={setNameCard} card={card.name} id={card.id} authToken={authToken} setData={setData}/>
+                <NameCardcomponents nameCard={nameCard} setNameCard={setNameCard} card={card.name} id={card.id} authToken={authToken} setData={setData} navigate={navigate} />
                 {expenses.map((expense) => (
                     <EstablishmentNameValuePersonDeleteToUpdate key={expense.id}>
                         <EstablishmentName
@@ -84,7 +84,7 @@ console.log(card)
                 </Add>
             </Container>
             <SubmitCancel>
-                <AddToSendSubmit onClick={() => navigate("/home")}>
+                <AddToSendSubmit onClick={() => updateExpenses(authToken, id, setData, expenses, nameCard, card)}>
                     Enviar
                 </AddToSendSubmit>
                 <AddToSendCancel onClick={() => navigate(`/expenses/${monthId}`)}>

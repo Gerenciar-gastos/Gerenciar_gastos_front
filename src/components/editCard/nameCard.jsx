@@ -4,8 +4,8 @@ import { MdDelete } from "react-icons/md";
 import { NameCard, Name, DeleteToUpdate, Delete } from '../../assets/styled/editCardSryled/editCardSryled';
 import deleteCard from './deleteCard';
 
-export function NameCardcomponents({ nameCard, setNameCard, card, id, authToken, setData }) {
-    console.log(id)
+export function NameCardcomponents({ nameCard, setNameCard, card, id, authToken, setData, navigate }) {
+
     return (
         <NameCard>
             <Name
@@ -16,7 +16,7 @@ export function NameCardcomponents({ nameCard, setNameCard, card, id, authToken,
             />
             <DeleteToUpdate>
                 <Delete>
-                    <MdDelete onClick={() => deleteCard(id, authToken, setData)} />
+                    <MdDelete onClick={() => deleteCard(id, authToken, setData, navigate)} />
                 </Delete>
             </DeleteToUpdate>
         </NameCard>
@@ -30,4 +30,5 @@ NameCardcomponents.propTypes = {
     id: PropTypes.number.isRequired,
     authToken: PropTypes.string.isRequired,
     setData: PropTypes.func.isRequired,
+    navigate: PropTypes.func.isRequired,
 };
