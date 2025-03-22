@@ -1,8 +1,8 @@
 import axios from "axios";
 import fetchData from "../home/fetchData";
 
-export default function updateExpenses(authToken, id, setData, expenses, nameCard, card) {
-    
+export default function updateExpenses(authToken, monthId, setData, expenses, nameCard, card, navigate) {
+
     function isExpenseChanged(expense1, expense2) {
         return expense1.name !== expense2.name || expense1.person !== expense2.person || expense1.value !== expense2.value;
     };
@@ -15,7 +15,6 @@ export default function updateExpenses(authToken, id, setData, expenses, nameCar
     function comparingCardName() {
         return nameCard !== card.name;
     }
-    console.log(card)
     const isCardNameChanged = comparingCardName();
 
     const dataToUpdate = {
@@ -23,7 +22,6 @@ export default function updateExpenses(authToken, id, setData, expenses, nameCar
         newCardName: isCardNameChanged ? nameCard : null,
         cardId: card.id
     };
-    console.log(dataToUpdate)
 
     if (changedExpenses.length > 0 || isCardNameChanged) {
         const urlCode = `${import.meta.env.VITE_API_URL}/expenses`;
@@ -34,6 +32,7 @@ export default function updateExpenses(authToken, id, setData, expenses, nameCar
             .then(() => {
                 alert("Despesas e/ou nome do card atualizados no banco de dados.");
                 fetchData(authToken, setData);
+                navigate(`/expenses/${monthId}`)
             })
             .catch((error) => {
                 alert("Erro ao atualizar despesas e/ou nome do card");

@@ -84,7 +84,7 @@ export function EditCard() {
                 </Add>
             </Container>
             <SubmitCancel>
-                <AddToSendSubmit onClick={() => updateExpenses(authToken, id, setData, expenses, nameCard, card)}>
+                <AddToSendSubmit onClick={() => updateExpenses(authToken, monthId, setData, expenses, nameCard, card, navigate)}>
                     Enviar
                 </AddToSendSubmit>
                 <AddToSendCancel onClick={() => navigate(`/expenses/${monthId}`)}>
