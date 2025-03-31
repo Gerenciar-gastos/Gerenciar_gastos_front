@@ -22,8 +22,7 @@ export function sendPurchasesData(id, containers, authToken, navigate) {
     axios.post(urlCode, dataToSend, {
         headers: { Authorization: `Bearer ${authToken}` }
     })
-        .then(response => {
-            console.log("Dados enviados com sucesso:", response.data);
+        .then(() => {
             alert("Dados enviados com sucesso!");
             navigate(`/home`)
         })
