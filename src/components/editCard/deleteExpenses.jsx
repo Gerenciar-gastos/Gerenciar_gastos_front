@@ -3,6 +3,7 @@ import fetchData from "../home/fetchData";
 
 export default function deleteExpenses(authToken, id, setData, expenses, setExpenses) {
     const expenseToDelete = expenses.find(expense => expense.id === id);
+    console.log("aqui")
 
     if (!expenseToDelete.name && !expenseToDelete.value && !expenseToDelete.person) {
         const updatedExpenses = expenses.filter(expense => expense.id !== id);

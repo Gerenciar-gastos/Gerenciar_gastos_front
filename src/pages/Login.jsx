@@ -69,6 +69,8 @@ export default function Login() {
             })
             .catch((err) => {
                 console.error('Erro na requisição:', err.response?.data || err.message);
+                alert(err.response.data)
+
             });
     }
     function togglePasswordVisibility() {
